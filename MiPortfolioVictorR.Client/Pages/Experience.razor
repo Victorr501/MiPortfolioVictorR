@@ -1,0 +1,109 @@
+﻿@* ── src/MiPortfolioVictorR.Client/Pages/Experience.razor ── *@
+@page "/experiencia"
+@inject ExperienceService ExperienceService
+
+<PageTitle>Experiencia — Víctor Rubín Rubio</PageTitle>
+
+<div class="page-container">
+
+    @* ── HEADER ── *@
+    <section class="exp-page__header">
+        <div class="section__label">Trayectoria</div>
+        <h1 class="exp-page__title">Experiencia laboral</h1>
+        <p class="exp-page__sub">Mi recorrido profesional, desde desarrollo de software hasta atención al cliente y voluntariado.</p>
+    </section>
+
+    @* ── DEVELOPER ── *@
+    <section class="section">
+        <div class="exp-block__label">
+            <span class="exp-block__dot exp-block__dot--dev"></span>
+            Como desarrollador
+        </div>
+        <div class="exp-timeline">
+            @foreach (var exp in ExperienceService.GetByType(ExperienceType.Developer))
+            {
+                <div class="exp-card">
+                    <div class="exp-card__aside">
+                        <span class="exp-card__period">@exp.Period</span>
+                        <span class="exp-card__location">@exp.Location</span>
+                    </div>
+                    <div class="exp-card__body">
+                        <div class="exp-card__header">
+                            <h2 class="exp-card__role">@exp.Role</h2>
+                            <span class="exp-card__company">@exp.Company</span>
+                        </div>
+                        <ul class="exp-card__list">
+                            @foreach (var desc in exp.Descriptions)
+                            {
+                                <li>@desc</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+    @* ── GENÉRICA ── *@
+    <section class="section">
+        <div class="exp-block__label">
+            <span class="exp-block__dot exp-block__dot--generic"></span>
+            Experiencia genérica
+        </div>
+        <div class="exp-timeline">
+            @foreach (var exp in ExperienceService.GetByType(ExperienceType.Generic))
+            {
+                <div class="exp-card">
+                    <div class="exp-card__aside">
+                        <span class="exp-card__period">@exp.Period</span>
+                        <span class="exp-card__location">@exp.Location</span>
+                    </div>
+                    <div class="exp-card__body">
+                        <div class="exp-card__header">
+                            <h2 class="exp-card__role">@exp.Role</h2>
+                            <span class="exp-card__company">@exp.Company</span>
+                        </div>
+                        <ul class="exp-card__list">
+                            @foreach (var desc in exp.Descriptions)
+                            {
+                                <li>@desc</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+    @* ── VOLUNTARIADOS ── *@
+    <section class="section">
+        <div class="exp-block__label">
+            <span class="exp-block__dot exp-block__dot--vol"></span>
+            Voluntariados
+        </div>
+        <div class="exp-timeline">
+            @foreach (var exp in ExperienceService.GetByType(ExperienceType.Volunteer))
+            {
+                <div class="exp-card">
+                    <div class="exp-card__aside">
+                        <span class="exp-card__period">@exp.Period</span>
+                        <span class="exp-card__location">@exp.Location</span>
+                    </div>
+                    <div class="exp-card__body">
+                        <div class="exp-card__header">
+                            <h2 class="exp-card__role">@exp.Role</h2>
+                            <span class="exp-card__company">@exp.Company</span>
+                        </div>
+                        <ul class="exp-card__list">
+                            @foreach (var desc in exp.Descriptions)
+                            {
+                                <li>@desc</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+</div>

@@ -6,15 +6,13 @@ namespace MiPortfolioVictorR.Client.Services
     {
 
         public List<Project> GetProjects() =>[
-            new Project
-            {
-                Id          = 1,
-                Title       = "Gestor",
-                Description = "App móvil financiera completa. Backend con Python, FastAPI y PostgreSQL usando NumPy y Pandas para cálculos financieros. Frontend con React Native y Expo. Infraestructura con Docker. Integra Firebase y Google Calendar API.",
-                GitHubUrl        = "https://github.com/Victorr501/GestorFrontEnd",
-                GitHubUrlBackend = "https://github.com/Victorr501/GestorBackEnd",
-                Tags        = ["Python", "FastAPI", "PostgreSQL", "React Native", "Docker", "Firebase"],
-                IsFeatured  = true
+            new Project{
+                Id = 15,
+                Title = "Aplicacion Daltonicos",
+                Description = "AppColoresDaltonicos es una aplicacion movil cliente-servidor para accesibilidad visual. El frontend esta desarrollado en .NET MAUI (C#, XAML) bajo el patron MVVM y AppShell. El backend es una API REST en ASP.NET Core con arquitectura multicapa y patron repositorio generico, utilizando Entity Framework Core (Code-First) sobre SQL Server. El sistema integra inyeccion de dependencias, AutoMapper para DTOs, autenticacion con JWT y encriptacion de contrasenas con BCrypt.",
+                GitHubUrl = "https://github.com/Victorr501/AppColoresDaltonicos",
+                Tags = [".NET", "C#", "ASP.NET", ".NET MAUI", "Andorid/IOS"],
+                IsFeatured = true,
             },
             new Project
             {
@@ -34,6 +32,16 @@ namespace MiPortfolioVictorR.Client.Services
                 YouTubeUrl  = "https://www.youtube.com/watch?v=2xj4kbRDh-0",
                 Tags        = ["Python", "Computer Vision"],
                 IsFeatured  = true
+            },
+            new Project
+            {
+                Id          = 1,
+                Title       = "Gestor",
+                Description = "App móvil financiera completa. Backend con Python, FastAPI y PostgreSQL usando NumPy y Pandas para cálculos financieros. Frontend con React Native y Expo. Infraestructura con Docker. Integra Firebase y Google Calendar API.",
+                GitHubUrl        = "https://github.com/Victorr501/GestorFrontEnd",
+                GitHubUrlBackend = "https://github.com/Victorr501/GestorBackEnd",
+                Tags        = ["Python", "FastAPI", "PostgreSQL", "React Native", "Docker", "Firebase"],
+                IsFeatured  = false,
             },
             new Project
             {

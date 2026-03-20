@@ -1,0 +1,141 @@
+﻿@* ── src/MiPortfolioVictorR.Client/Pages/Trackify.razor ── *@
+@page "/trackify"
+@inject TrackifyService TrackifyService
+
+<PageTitle>Trackify — PFC · Víctor Rubín Rubio</PageTitle>
+
+<div class="page-container">
+
+    @* ── HERO DEL PFC ── *@
+    <section class="pfc-hero">
+        <div class="pfc-hero__meta">
+            <span class="badge-wood">Proyecto Fin de Ciclo</span>
+            <span class="badge-wood">DAM · 2025</span>
+        </div>
+        <h1 class="pfc-hero__title">Trackify</h1>
+        <p class="pfc-hero__desc">
+            Trackify organiza hábitos diarios y semanales, envía recordatorios automáticos y muestra
+            el progreso con estadísticas claras para que mantener la constancia sea más sencillo.
+        </p>
+        <div class="pfc-hero__links">
+            <a class="btn-wood-primary" href="https://github.com/Victorr501/TRACKIFY_FrontEnd" target="_blank" rel="noopener noreferrer">
+                Frontend
+            </a>
+            <a class="btn-wood-outline" href="https://github.com/Victorr501/TRACKIFY_BackEnd" target="_blank" rel="noopener noreferrer">
+                Backend
+            </a>
+            <a class="btn-wood-outline" href="https://www.youtube.com/watch?v=yB56afseJ-4&t=2s" target="_blank" rel="noopener noreferrer">
+                Ver vídeo
+            </a>
+        </div>
+    </section>
+
+    @* ── FUNCIONALIDADES ── *@
+    <section class="section">
+        <div class="section__label">Qué hace</div>
+        <h2 class="section__title">Funcionalidades</h2>
+        <div class="pfc-features">
+            <div class="pfc-feature">
+                <div class="pfc-feature__icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" />
+                        <path d="M16 2v4M8 2v4M3 10h18" />
+                    </svg>
+                </div>
+                <h3 class="pfc-feature__title">Registro flexible</h3>
+                <p class="pfc-feature__desc">El usuario define hábitos diarios o semanales con recordatorios personalizados según lo que quiera lograr.</p>
+            </div>
+            <div class="pfc-feature">
+                <div class="pfc-feature__icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                </div>
+                <h3 class="pfc-feature__title">Rachas entre amigos</h3>
+                <p class="pfc-feature__desc">Hasta 5 amigos pueden compartir una misma racha y progresar juntos hacia sus objetivos.</p>
+            </div>
+            <div class="pfc-feature">
+                <div class="pfc-feature__icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                </div>
+                <h3 class="pfc-feature__title">Gestión de rachas</h3>
+                <p class="pfc-feature__desc">Trackify contabiliza los días consecutivos cumplidos para reforzar la motivación y la constancia.</p>
+            </div>
+            <div class="pfc-feature">
+                <div class="pfc-feature__icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10" />
+                        <line x1="12" y1="20" x2="12" y2="4" />
+                        <line x1="6" y1="20" x2="6" y2="14" />
+                    </svg>
+                </div>
+                <h3 class="pfc-feature__title">Gráficos de progreso</h3>
+                <p class="pfc-feature__desc">Visualizaciones interactivas que muestran la evolución del usuario y permiten detectar tendencias.</p>
+            </div>
+        </div>
+    </section>
+
+    @* ── TECNOLOGÍAS ── *@
+    <section class="section">
+        <div class="section__label">Stack</div>
+        <h2 class="section__title">Tecnologías usadas</h2>
+        <div class="pfc-stack">
+            <div class="pfc-stack__item">
+                <span class="pfc-stack__layer">Base de datos</span>
+                <span class="pfc-stack__tech">MySQL · DBeaver</span>
+            </div>
+            <div class="pfc-stack__item">
+                <span class="pfc-stack__layer">Backend</span>
+                <span class="pfc-stack__tech">Python · FastAPI</span>
+            </div>
+            <div class="pfc-stack__item">
+                <span class="pfc-stack__layer">Frontend móvil</span>
+                <span class="pfc-stack__tech">React Native · Android e iOS</span>
+            </div>
+        </div>
+    </section>
+
+    @* ── MOTIVACIÓN ── *@
+    <section class="section">
+        <div class="section__label">Por qué lo hice</div>
+        <h2 class="section__title">Motivación</h2>
+        <blockquote class="pfc-quote">
+            Trackify nace de mi interés por el desarrollo personal y la importancia de construir hábitos sólidos.
+            Experiencias cercanas me mostraron cómo una herramienta tecnológica puede contribuir al bienestar diario,
+            por lo que este proyecto une mis ganas de aprender con la intención de crear algo útil para más personas.
+        </blockquote>
+    </section>
+
+    @* ── BLOG DE ACTUALIZACIONES ── *@
+    <section class="section">
+        <div class="section__label">Diario de desarrollo</div>
+        <h2 class="section__title">Actualizaciones</h2>
+        <div class="pfc-progress">
+            <div class="pfc-progress__bar">
+                <div class="pfc-progress__fill" style="width: 100%"></div>
+            </div>
+            <span class="pfc-progress__label">Proyecto completado · 100%</span>
+        </div>
+        <div class="pfc-updates">
+            @foreach (var update in TrackifyService.GetUpdates())
+            {
+                <div class="pfc-update">
+                    <div class="pfc-update__date">
+                        <span class="pfc-update__day">@update.Date.Day.ToString("00")</span>
+                        <span class="pfc-update__month">@update.Date.ToString("MMM", new System.Globalization.CultureInfo("es-ES"))</span>
+                        <span class="pfc-update__year">@update.Date.Year</span>
+                    </div>
+                    <div class="pfc-update__body">
+                        <h3 class="pfc-update__title">@update.Title</h3>
+                        <p class="pfc-update__desc">@update.Description</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+</div>

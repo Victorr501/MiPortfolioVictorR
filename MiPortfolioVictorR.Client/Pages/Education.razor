@@ -1,0 +1,67 @@
+﻿@* ── src/MiPortfolioVictorR.Client/Pages/Education.razor ── *@
+@page "/estudios"
+@inject EducationService EducationService
+
+<PageTitle>Estudios — Víctor Rubín Rubio</PageTitle>
+
+<div class="page-container">
+
+    @* ── HEADER ── *@
+    <section class="edu-page__header">
+        <div class="section__label">Formación</div>
+        <h1 class="edu-page__title">Estudios y cursos</h1>
+        <p class="edu-page__sub">Mi recorrido académico y los cursos que he completado para seguir creciendo.</p>
+    </section>
+
+    @* ── FORMACIÓN ACADÉMICA ── *@
+    <section class="section">
+        <div class="section__label">Académico</div>
+        <h2 class="section__title">Formación reglada</h2>
+        <div class="edu-academic">
+            @foreach (var edu in EducationService.GetEducation())
+            {
+                <div class="edu-academic__item">
+                    <div class="edu-academic__period">@edu.Period</div>
+                    <div class="edu-academic__body">
+                        <h3 class="edu-academic__title">@edu.Title</h3>
+                        <p class="edu-academic__center">@edu.Center · @edu.Location</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+    @* ── CURSOS ── *@
+    <section class="section">
+        <div class="section__label">Aprendizaje continuo</div>
+        <h2 class="section__title">Cursos completados</h2>
+
+        @foreach (var platform in EducationService.GetCourses().Select(c => c.Platform).Distinct())
+        {
+            <div class="courses-group">
+                <h3 class="courses-group__title">@platform</h3>
+                <div class="courses-list">
+                    @foreach (var course in EducationService.GetCourses().Where(c => c.Platform == platform))
+                    {
+                        <div class="course-item">
+                            <div class="course-item__left">
+                                <span class="course-item__name">@course.Name</span>
+                                @if (!string.IsNullOrEmpty(course.CertificateCode))
+                                {
+                                    <span class="course-item__code">@course.CertificateCode</span>
+                                }
+                            </div>
+                            @if (!string.IsNullOrEmpty(course.Url))
+                            {
+                                <a href="@course.Url" target="_blank" rel="noopener noreferrer" class="course-item__link">
+                                    Ver certificado →
+                                </a>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </section>
+
+</div>

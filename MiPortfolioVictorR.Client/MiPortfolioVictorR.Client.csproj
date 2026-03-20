@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -16,8 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Components\" />
-    <Folder Include="wwwroot\images\" />
+    <Content Update="wwwroot\archivos\CVVictor_Rubin.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

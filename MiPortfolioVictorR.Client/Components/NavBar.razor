@@ -1,0 +1,31 @@
+﻿@* ── src/MiPortfolioVictorR.Client/Components/NavBar.razor ── *@
+@inject NavigationManager Nav
+@using MiPortfolioVictorR.Shared.Constants
+
+<header class="navbar">
+    <nav class="navbar__inner">
+
+        <a class="navbar__logo" href="@AppRoutes.Home">Víctor Rubín</a>
+
+        <button class="navbar__toggle" @onclick="ToggleMenu" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
+
+        <ul class="navbar__links @(_menuOpen ? "navbar__links--open" : "")">
+            <li><NavLink href="@AppRoutes.Home" Match="NavLinkMatch.All" ActiveClass="navbar__link--active" class="navbar__link">Inicio</NavLink></li>
+            <li><NavLink href="@AppRoutes.Experience" ActiveClass="navbar__link--active" class="navbar__link">Experiencia</NavLink></li>
+            <li><NavLink href="@AppRoutes.Projects" ActiveClass="navbar__link--active" class="navbar__link">Proyectos</NavLink></li>
+            <li><NavLink href="@AppRoutes.Education" ActiveClass="navbar__link--active" class="navbar__link">Estudios</NavLink></li>
+
+            <li class="navbar__separator" aria-hidden="true"></li>
+
+            <li><NavLink href="@AppRoutes.Trackify" ActiveClass="navbar__link--active navbar__link--featured-active" class="navbar__link navbar__link--featured">Trackify</NavLink></li>
+        </ul>
+
+    </nav>
+</header>
+
+@code {
+    private bool _menuOpen = false;
+    private void ToggleMenu() => _menuOpen = !_menuOpen;
+}

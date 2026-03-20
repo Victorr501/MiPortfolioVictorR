@@ -1,7 +1,186 @@
-﻿@page "/"
+﻿@* ── src/MiPortfolioVictorR.Client/Pages/Home.razor ── *@
+@page "/"
+@inject ProjectService ProjectService
+@inject ExperienceService ExperienceService
+@inject SkillService SkillService
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Víctor Rubín Rubio — Desarrollador</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="page-container">
 
-Welcome to your new app.
+    @* ── HERO ── *@
+    <section class="hero">
+        <div class="hero__left">
+            <span class="hero__tag">Desarrollador Junior · Microsoft Stack</span>
+            <h1 class="hero__name">
+                Víctor <span class="hero__name--accent">Rubín Rubio</span>
+            </h1>
+            <p class="hero__bio">
+                Desarrollador de aplicaciones multiplataforma y administrador de sistemas.
+                Apasionado por el aprendizaje constante y el trabajo en equipo.
+            </p>
+            <div class="hero__btns">
+                <a class="btn-wood-primary" href="@AppRoutes.Projects">Ver proyectos</a>
+                <a class="btn-wood-outline" href="archivos/CVVictor_Rubin.pdf" download>Descargar CV</a>
+            </div>
+            <div class="hero__badges">
+                <span class="badge-wood">C# · .NET 8</span>
+                <span class="badge-wood">Blazor WASM</span>
+                <span class="badge-wood">Azure</span>
+                <span class="badge-wood">Python · FastAPI</span>
+                <span class="badge-wood">Docker</span>
+            </div>
+        </div>
+        <div class="hero__right">
+            <div class="hero__photo hero__photo--main">
+                <img src="images/IMG_0583.JPEG" alt="Víctor Rubín Rubio" class="hero__photo-img" />
+            </div>
+            <div class="hero__photo hero__photo--sm">
+                <img src="images/Gemini_Generated_Image_7fmcit7fmcit7fmc.png" alt="Setup de programación" class="hero__photo-img" />
+            </div>
+            <div class="hero__photo hero__photo--sm">
+                <img src="images/Gemini_Generated_Image_9ol3qh9ol3qh9ol3.png" alt="Espacio de trabajo" class="hero__photo-img" />
+            </div>
+        </div>
+    </section>
+
+    @* ── EXPERIENCIA (resumen) ── *@
+    <section class="section">
+        <div class="section__label">Trayectoria</div>
+        <div class="section__header">
+            <h2 class="section__title">Experiencia laboral</h2>
+            <a class="section__link" href="@AppRoutes.Experience">Ver todo →</a>
+        </div>
+        <div class="timeline">
+            @foreach (var exp in ExperienceService.GetByType(ExperienceType.Developer))
+            {
+                <div class="timeline__item">
+                    <div class="timeline__dot-col">
+                        <div class="timeline__dot"></div>
+                        <div class="timeline__line"></div>
+                    </div>
+                    <div class="timeline__content">
+                        <span class="timeline__period">@exp.Period</span>
+                        <h3 class="timeline__role">@exp.Role</h3>
+                        <p class="timeline__company">@exp.Company · @exp.Location</p>
+                        <p class="timeline__desc">@exp.Descriptions.First()</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+    @* ── PROYECTOS DESTACADOS ── *@
+    <section class="section">
+        <div class="section__label">Trabajo</div>
+        <div class="section__header">
+            <h2 class="section__title">Proyectos destacados</h2>
+            <a class="section__link" href="@AppRoutes.Projects">Ver todos →</a>
+        </div>
+        <div class="projects-grid">
+            @foreach (var project in ProjectService.GetFeatured())
+            {
+                <div class="card-wood card-wood--featured">
+                    <span class="badge-wood" style="margin-bottom: 0.5rem; display: inline-block;">Destacado</span>
+                    <h3 class="proj__title">@project.Title</h3>
+                    <p class="proj__desc">@project.Description</p>
+                    <div class="proj__tags">
+                        @foreach (var tag in project.Tags.Take(3))
+                        {
+                            <span class="badge-wood">@tag</span>
+                        }
+                    </div>
+                    <div class="proj__links">
+                        <a href="@project.GitHubUrl" target="_blank" rel="noopener noreferrer" class="proj__link">GitHub</a>
+                        @if (!string.IsNullOrEmpty(project.YouTubeUrl))
+                        {
+                            <a href="@project.YouTubeUrl" target="_blank" rel="noopener noreferrer" class="proj__link">YouTube</a>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+    @* ── PROYECTOS GRANDES ── *@
+    <section class="section">
+        <div class="section__label">Proyectos destacados</div>
+        <h2 class="section__title">Proyectos grandes</h2>
+        <div class="big-projects">
+
+            <div class="big-project-banner">
+                <div class="big-project-banner__content">
+                    <div class="big-project-banner__meta">
+                        <span class="badge-wood">Proyecto Fin de Ciclo</span>
+                        <span class="badge-wood">DAM · 2025</span>
+                        <span class="badge-wood">Completado</span>
+                    </div>
+                    <h3 class="big-project-banner__title">Trackify</h3>
+                    <p class="big-project-banner__desc">App móvil para gestionar hábitos diarios y semanales con rachas entre amigos, estadísticas visuales y seguimiento de progreso personal.</p>
+                    <div class="big-project-banner__tags">
+                        <span class="badge-wood">React Native</span>
+                        <span class="badge-wood">FastAPI</span>
+                        <span class="badge-wood">MySQL</span>
+                        <span class="badge-wood">Python</span>
+                    </div>
+                </div>
+                <div class="big-project-banner__action">
+                    <a class="btn-wood-primary" href="@AppRoutes.Trackify">Ver proyecto →</a>
+                </div>
+                <span class="big-project-banner__number">01</span>
+            </div>
+
+            @* Para añadir un nuevo proyecto grande en el futuro, copia el bloque anterior y cambia el 01 por 02 *@
+
+        </div>
+    </section>
+
+    @* ── TECNOLOGÍAS ── *@
+    <section class="section">
+        <div class="section__label">Stack</div>
+        <h2 class="section__title">Tecnologías</h2>
+        <div class="skills-grid">
+            @foreach (var category in SkillService.GetCategories())
+            {
+                <div class="skill-cat">
+                    <p class="skill-cat__title">@category</p>
+                    <div class="skill-cat__list">
+                        @foreach (var skill in SkillService.GetByCategory(category))
+                        {
+                            <div class="skill-item @(skill.IsLearning ? "skill-item--learning" : "")">
+                                <img src="@skill.IconUrl" alt="@skill.Name" class="skill-item__icon" />
+                                <span class="skill-item__name">@skill.Name</span>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+    @* ── ESTUDIOS (resumen) ── *@
+    <section class="section">
+        <div class="section__label">Formación</div>
+        <div class="section__header">
+            <h2 class="section__title">Estudios</h2>
+            <a class="section__link" href="@AppRoutes.Education">Ver cursos →</a>
+        </div>
+        <div class="edu-list">
+            <div class="edu-item">
+                <span class="edu-item__period">2023 – 2025</span>
+                <div>
+                    <p class="edu-item__title">Grado Superior en Desarrollo de Aplicaciones Multiplataforma</p>
+                    <p class="edu-item__center">IES Enrique Tierno Galván · Madrid</p>
+                </div>
+            </div>
+            <div class="edu-item">
+                <span class="edu-item__period">2021 – 2023</span>
+                <div>
+                    <p class="edu-item__title">Grado Medio en Sistemas Microinformáticos y Redes</p>
+                    <p class="edu-item__center">Salesianos Ciudad de los Muchachos · Madrid</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
