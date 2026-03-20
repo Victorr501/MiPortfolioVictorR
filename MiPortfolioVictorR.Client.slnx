@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MiPortfolioVictorR.Client/MiPortfolioVictorR.Client.csproj" />
+  <Project Path="MiPortfolioVictorR.Shared/MiPortfolioVictorR.Shared.csproj" />
+</Solution>
