@@ -15,9 +15,11 @@ namespace MiPortfolioVictorR.Client.Services
                 Type     = ExperienceType.Developer,
                 Descriptions =
                 [
-                    "Automatización de procesos con Power Automate y SharePoint (Latero).",
-                    "Integración de Business Central con SFTP mediante middleware en C# desplegado en Azure.",
-                    "Diseño y desarrollo de un middleware en C# (.NET 8 Isolated) en Azure Functions para integrar Dynamics 365 Business Central con servidores SFTP."
+                    "Diseño y supervisión de arquitectura cliente-servidor para un Agente Comercial con IA, utilizando .NET 8.0 y servicios cognitivos de Azure con persistencia en SQL.",
+                    "Desarrollo de middleware robusto en C# (.NET 10) para la integración de Dynamics 365 Business Central con servidores SFTP, garantizando alta disponibilidad en Azure.",
+                    "Liderazgo en la automatización de flujos de trabajo críticos mediante Power Automate y SharePoint (Proyecto Latero), digitalizando procesos manuales de gestión documental.",
+                    "Implementación de soluciones backend para el intercambio seguro de datos de gran volumen mediante protocolos SFTP/SSH y APIs de Business Central.",
+                    "Gestión del ciclo de vida de aplicaciones en la nube utilizando Azure App Services, JSON/XML y control de versiones con Git."
                 ]
             },
             new WorkExperience
