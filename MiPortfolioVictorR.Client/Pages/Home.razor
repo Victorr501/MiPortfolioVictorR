@@ -92,6 +92,10 @@
                     </div>
                     <div class="proj__links">
                         <a href="@project.GitHubUrl" target="_blank" rel="noopener noreferrer" class="proj__link">GitHub</a>
+                        @if (!string.IsNullOrEmpty(project.LiveUrl))
+                        {
+                            <a href="@project.LiveUrl" target="_blank" rel="noopener noreferrer" class="proj__link">Ver web →</a>
+                        }
                         @if (!string.IsNullOrEmpty(project.YouTubeUrl))
                         {
                             <a href="@project.YouTubeUrl" target="_blank" rel="noopener noreferrer" class="proj__link">YouTube</a>

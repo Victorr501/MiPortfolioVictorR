@@ -35,6 +35,16 @@ namespace MiPortfolioVictorR.Client.Services
             },
             new Project
             {
+                Id          = 16,
+                Title       = "Mi Portfolio",
+                Description = "Portfolio personal desarrollado con Blazor WebAssembly y .NET 8, desplegado en Azure App Service. Incluye secciones de experiencia, proyectos, Trackify PFC, tecnologías y estudios.",
+                GitHubUrl   = "https://github.com/Victorr501/MiPortfolioVictorR",
+                LiveUrl     = "https://victorrubin-deejedgugtfge3fg.spaincentral-01.azurewebsites.net",
+                Tags        = ["Blazor WASM", ".NET 8", "Azure", "C#"],
+                IsFeatured  = false
+            },
+            new Project
+            {
                 Id          = 1,
                 Title       = "Gestor",
                 Description = "App móvil financiera completa. Backend con Python, FastAPI y PostgreSQL usando NumPy y Pandas para cálculos financieros. Frontend con React Native y Expo. Infraestructura con Docker. Integra Firebase y Google Calendar API.",
