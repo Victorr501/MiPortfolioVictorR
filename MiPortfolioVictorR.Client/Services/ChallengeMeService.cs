@@ -20,7 +20,15 @@ namespace MiPortfolioVictorR.Client.Services
                 Description = "Esta semana he estructurado los dos flujos de login (email/contraseña y Microsoft), " +
                               "configurado el JWT, los middlewares de excepciones globales y establecido la conexión " +
                               "con Azure SQL. Próximos pasos: integrar Azure Entra ID (AD) y conectar todo con el frontend en Blazor."
-            }
+            },
+            new PfcUpdate
+            {
+                Date        = new DateOnly(2026, 04, 07),
+                Title       = "Inicio de sesión con Microsoft",
+                Description = "Finalizada la implementación de Microsoft Auth y la configuración de seguridad. Se completó el diseño " +
+                              "del Dashboard y se unificó el sistema de autorización para corregir errores de redundancia. Próximo objetivo: " +
+                              "desarrollo de los flujos de registro e inicio de sesión local."
+            },
         ];
     }
 }
