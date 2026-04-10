@@ -32,7 +32,9 @@ namespace MiPortfolioVictorR.Client.Services
             new Skill { Name = "SQL Server",     Category = "Herramientas", IconUrl = $"{DevIcons}/azuresqldatabase/azuresqldatabase-original.svg" },
             new Skill { Name = "Azure", Category = "Herramientas", IconUrl = $"{DevIcons}/azure/azure-original.svg"},
             // Aprendiendo
-            new Skill {Name = "SVG versions", Category = "Aprendiendo", IconUrl = $"{DevIcons}/githubactions/githubactions-original.svg", IsLearning = true }
+            new Skill {Name = "SVG versions", Category = "Aprendiendo", IconUrl = $"{DevIcons}/githubactions/githubactions-original.svg", IsLearning = true },
+            new Skill {Name = "Swift", Category = "Aprendiendo", IconUrl = $"{DevIcons}/swift/original.svg"},
+            new Skill {Name = "Kotlin", Category = "Aprendiendo", IconUrl = $"{DevIcons}/kotlin/original.svg"}
         ];
 
         public List<string> GetCategories() =>

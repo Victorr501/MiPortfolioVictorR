@@ -29,6 +29,17 @@ namespace MiPortfolioVictorR.Client.Services
                               "del Dashboard y se unificó el sistema de autorización para corregir errores de redundancia. Próximo objetivo: " +
                               "desarrollo de los flujos de registro e inicio de sesión local."
             },
+            new PfcUpdate
+            {
+                Date = new DateOnly(2026, 04, 07),
+                Title = "Despliegue en Azure e inicio de desarrollo nativo (iOS y Android)",
+                Description = "Se ha implementado con éxito la autenticación de Microsoft y la configuración de seguridad base. " +
+                            "Actualmente, existe una discrepancia en la persistencia de sesión entre el entorno local y Azure, " +
+                            "impidiendo que el usuario se mantenga logueado tras el despliegue. Se está trabajando en ajustar " +
+                            "la gestión de contextos para producción. Paralelamente, con el fin de optimizar la experiencia móvil, " +
+                            "hemos inicializado los repositorios para las aplicaciones nativas en Swift (iOS) y Kotlin (Android)."
+                
+            }
         ];
     }
 }
