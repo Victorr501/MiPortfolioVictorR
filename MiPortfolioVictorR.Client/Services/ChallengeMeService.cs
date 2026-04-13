@@ -37,8 +37,13 @@ namespace MiPortfolioVictorR.Client.Services
                             "Actualmente, existe una discrepancia en la persistencia de sesión entre el entorno local y Azure, " +
                             "impidiendo que el usuario se mantenga logueado tras el despliegue. Se está trabajando en ajustar " +
                             "la gestión de contextos para producción. Paralelamente, con el fin de optimizar la experiencia móvil, " +
-                            "hemos inicializado los repositorios para las aplicaciones nativas en Swift (iOS) y Kotlin (Android)."
-                
+                            "hemos inicializado los repositorios para las aplicaciones nativas en Swift (iOS) y Kotlin (Android)."   
+            },
+            new PfcUpdate
+            {
+                Date = new DateOnly(2026, 04, 07),
+                Title = "Solucion de la discrepancia del entorno y creacion de la aplicacion para android",
+                Description = "Ya he terminado de solucionar el problema en la autenticacion, al final lo que he tenido que hacer es usar localstorage en vez de la cookes devido a que una vez arrancada la pestaña yo no podia hacer una peticion al servidor ya que el http estaba desabilitado. A ademas he creado ya el repostirio para la aplicacion en Android usando Kotlin"
             }
         ];
     }
