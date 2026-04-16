@@ -31,7 +31,7 @@ namespace MiPortfolioVictorR.Client.Services
             },
             new PfcUpdate
             {
-                Date = new DateOnly(2026, 04, 07),
+                Date = new DateOnly(2026, 04, 11),
                 Title = "Despliegue en Azure e inicio de desarrollo nativo (iOS y Android)",
                 Description = "Se ha implementado con éxito la autenticación de Microsoft y la configuración de seguridad base. " +
                             "Actualmente, existe una discrepancia en la persistencia de sesión entre el entorno local y Azure, " +
@@ -41,7 +41,7 @@ namespace MiPortfolioVictorR.Client.Services
             },
             new PfcUpdate
             {
-                Date = new DateOnly(2026, 04, 07),
+                Date = new DateOnly(2026, 04, 13),
                 Title = "Solucion de la discrepancia del entorno y creacion de la aplicacion para android",
                 Description = "Ya he terminado de solucionar el problema en la autenticacion, al final lo que he tenido que hacer es usar localstorage en vez de la cookes devido a que una vez arrancada la pestaña yo no podia hacer una peticion al servidor ya que el http estaba desabilitado. A ademas he creado ya el repostirio para la aplicacion en Android usando Kotlin"
             }
