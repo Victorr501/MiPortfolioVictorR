@@ -31,6 +31,8 @@ namespace MiPortfolioVictorR.Client.Services
             new Skill { Name = "Azure DevOps",   Category = "Herramientas", IconUrl = $"{DevIcons}/azuredevops/azuredevops-original.svg" },
             new Skill { Name = "SQL Server",     Category = "Herramientas", IconUrl = $"{DevIcons}/azuresqldatabase/azuresqldatabase-original.svg" },
             new Skill { Name = "Azure", Category = "Herramientas", IconUrl = $"{DevIcons}/azure/azure-original.svg"},
+            new Skill { Name = "Claude", Category = "Herramientas", IconUrl = $"{DevIcons}/claude/claude-original.svg" },
+
             // Aprendiendo
             new Skill {Name = "SVG versions", Category = "Aprendiendo", IconUrl = $"{DevIcons}/githubactions/githubactions-original.svg", IsLearning = true },
             new Skill {Name = "Swift", Category = "Aprendiendo", IconUrl = $"{DevIcons}/swift/swift-original.svg"},
