@@ -44,6 +44,12 @@ namespace MiPortfolioVictorR.Client.Services
                 Date = new DateOnly(2026, 04, 13),
                 Title = "Solucion de la discrepancia del entorno y creacion de la aplicacion para android",
                 Description = "Ya he terminado de solucionar el problema en la autenticacion, al final lo que he tenido que hacer es usar localstorage en vez de la cookes devido a que una vez arrancada la pestaña yo no podia hacer una peticion al servidor ya que el http estaba desabilitado. A ademas he creado ya el repostirio para la aplicacion en Android usando Kotlin"
+            },
+            new PfcUpdate
+            {
+                Date = new DateOnly(2026, 04, 19),
+                Title = "Desarrollo inicial de iOS completado y planificación para Android",
+                Description = "Ya he desarrollado el login, registro y la pantalla principal de mi proyecto ChallengMe! en iOS. Está funcionando perfectamente, usando el mismo servidor que la página web. Lo próximo que haré será desarrollar la versión para Android usando Kotlin (manteniendo las mismas funciones), crear el icono de la aplicación y publicar ambas versiones para que las podáis ir descargando y probando."
             }
         ];
     }
