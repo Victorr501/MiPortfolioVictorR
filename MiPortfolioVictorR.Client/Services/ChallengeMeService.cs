@@ -8,6 +8,12 @@ namespace MiPortfolioVictorR.Client.Services
         [
             new PfcUpdate
             {
+                Date = new DateOnly(2026, 04, 24),
+                Title = "Icono diseñado a mano e implementado en web y móvil",
+                Description = "He diseñado el icono de ChallengMe! desde cero a mano, digitalizándolo e integrándolo tanto en la aplicación web como en las apps móviles de iOS y Android. Un detalle de identidad visual que le da carácter propio al proyecto más allá del código."
+            },
+            new PfcUpdate
+            {
                 Date = new DateOnly(2026, 04, 22),
                 Title = "Desarrollo de login en Android, diseño de logo y planificación de escalabilidad",
                 Description = "Ya he desarrollado el login y registro en ChallengMe para Android usando Kotlin. Además, he terminado de diseñar el logo de la aplicación. Los siguientes pasos serán integrar este logo en las interfaces, investigar el proceso de publicación en la AppStore y PlayStore, y desarrollar los tests de la API, una tarea invisible para el usuario pero fundamental para asegurar la escalabilidad del proyecto."
