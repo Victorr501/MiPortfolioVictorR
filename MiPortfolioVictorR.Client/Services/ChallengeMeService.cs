@@ -8,6 +8,18 @@ namespace MiPortfolioVictorR.Client.Services
         [
             new PfcUpdate
             {
+                Date = new DateOnly(2026, 05, 02),
+                Title = "Documentación completa del proyecto y arquitectura definida",
+                Description = "He completado la documentación técnica de ChallengMe!, definiendo la arquitectura completa por capas para la API, Web (Blazor), iOS (SwiftUI) y Android (Jetpack Compose). También quedan definidos la paleta de color, tipografía, endpoints con sus modelos de request y response, estructura de base de datos SQL y Cosmos DB, plan de tests unitarios e integración, y el roadmap de publicación con sus costes reales. Toda esta base documental es la que permite mantener cuatro plataformas con coherencia siendo un único desarrollador."
+            },
+            new PfcUpdate
+            {
+                Date = new DateOnly(2026, 04, 30),
+                Title = "Suite de tests completa para la API — 29/29 en verde",
+                Description = "Hoy he implementado la suite de tests completa para ChallengMe! API. Tests unitarios de AuthService cubriendo login con email, registro y login con Microsoft usando Moq para aislar dependencias. Tests unitarios de UsuarioRepository con SQLite en memoria para no tocar Azure SQL. Tests unitarios de AzureAdService simulando respuestas HTTP de Microsoft con un FakeHttpMessageHandler. Y tests de integración del AuthController levantando la API completa en memoria con WebApplicationFactory y verificando que el ExceptionMiddleware convierte las excepciones en los códigos HTTP correctos. Stack de testing: xUnit + Moq + FluentAssertions + SQLite in-memory."
+            },
+            new PfcUpdate
+            {
                 Date = new DateOnly(2026, 04, 24),
                 Title = "Icono diseñado a mano e implementado en web y móvil",
                 Description = "He diseñado el icono de ChallengMe! desde cero a mano, digitalizándolo e integrándolo tanto en la aplicación web como en las apps móviles de iOS y Android. Un detalle de identidad visual que le da carácter propio al proyecto más allá del código."
