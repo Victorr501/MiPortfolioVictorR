@@ -73,42 +73,6 @@
         </div>
     </section>
 
-    @* ── PROYECTOS DESTACADOS ── *@
-    <section class="section">
-        <div class="section__label">Trabajo</div>
-        <div class="section__header">
-            <h2 class="section__title">Proyectos destacados</h2>
-            <a class="section__link" href="@AppRoutes.Projects">Ver todos →</a>
-        </div>
-        <div class="projects-grid">
-            @foreach (var project in ProjectService.GetFeatured())
-            {
-                <div class="card-wood card-wood--featured">
-                    <span class="badge-wood" style="margin-bottom: 0.5rem; display: inline-block;">Destacado</span>
-                    <h3 class="proj__title">@project.Title</h3>
-                    <p class="proj__desc">@project.Description</p>
-                    <div class="proj__tags">
-                        @foreach (var tag in project.Tags.Take(3))
-                        {
-                            <span class="badge-wood">@tag</span>
-                        }
-                    </div>
-                    <div class="proj__links">
-                        <a href="@project.GitHubUrl" target="_blank" rel="noopener noreferrer" class="proj__link">GitHub</a>
-                        @if (!string.IsNullOrEmpty(project.LiveUrl))
-                        {
-                            <a href="@project.LiveUrl" target="_blank" rel="noopener noreferrer" class="proj__link">Ver web →</a>
-                        }
-                        @if (!string.IsNullOrEmpty(project.YouTubeUrl))
-                        {
-                            <a href="@project.YouTubeUrl" target="_blank" rel="noopener noreferrer" class="proj__link">YouTube</a>
-                        }
-                    </div>
-                </div>
-            }
-        </div>
-    </section>
-
     @* ── PROYECTOS GRANDES ── *@
     <section class="section">
         <div class="section__label">Proyectos destacados</div>
@@ -161,6 +125,43 @@
 
         </div>
     </section>
+
+    @* ── PROYECTOS DESTACADOS ── *@
+    <section class="section">
+        <div class="section__label">Trabajo</div>
+        <div class="section__header">
+            <h2 class="section__title">Proyectos destacados</h2>
+            <a class="section__link" href="@AppRoutes.Projects">Ver todos →</a>
+        </div>
+        <div class="projects-grid">
+            @foreach (var project in ProjectService.GetFeatured())
+            {
+                <div class="card-wood card-wood--featured">
+                    <span class="badge-wood" style="margin-bottom: 0.5rem; display: inline-block;">Destacado</span>
+                    <h3 class="proj__title">@project.Title</h3>
+                    <p class="proj__desc">@project.Description</p>
+                    <div class="proj__tags">
+                        @foreach (var tag in project.Tags.Take(3))
+                        {
+                            <span class="badge-wood">@tag</span>
+                        }
+                    </div>
+                    <div class="proj__links">
+                        <a href="@project.GitHubUrl" target="_blank" rel="noopener noreferrer" class="proj__link">GitHub</a>
+                        @if (!string.IsNullOrEmpty(project.LiveUrl))
+                        {
+                            <a href="@project.LiveUrl" target="_blank" rel="noopener noreferrer" class="proj__link">Ver web →</a>
+                        }
+                        @if (!string.IsNullOrEmpty(project.YouTubeUrl))
+                        {
+                            <a href="@project.YouTubeUrl" target="_blank" rel="noopener noreferrer" class="proj__link">YouTube</a>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
 
     @* ── TECNOLOGÍAS ── *@
     <section class="section">
