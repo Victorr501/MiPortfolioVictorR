@@ -19,7 +19,8 @@ namespace MiPortfolioVictorR.Client.Services
                     "Desarrollo de middleware robusto en C# (.NET 10) para la integración de Dynamics 365 Business Central con servidores SFTP, garantizando alta disponibilidad en Azure.",
                     "Liderazgo en la automatización de flujos de trabajo críticos mediante Power Automate y SharePoint (Proyecto Latero), digitalizando procesos manuales de gestión documental.",
                     "Implementación de soluciones backend para el intercambio seguro de datos de gran volumen mediante protocolos SFTP/SSH y APIs de Business Central.",
-                    "Gestión del ciclo de vida de aplicaciones en la nube utilizando Azure App Services, JSON/XML y control de versiones con Git."
+                    "Gestión del ciclo de vida de aplicaciones en la nube utilizando Azure App Services, JSON/XML y control de versiones con Git.",
+                    "Desarrollo activo de extensiones y actualizaciones personalizadas sobre la plataforma Dynamics 365 Business Central, adaptando funcionalidades del ERP a los procesos específicos del negocio."
                 ]
             },
             new WorkExperience
