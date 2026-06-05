@@ -19,6 +19,10 @@ namespace MiPortfolioVictorR.Shared.Constants
         public const string GitHubApiBase = "https://api.github.com";
         public const string FormspreeEndpoint = "";  // ← añadir cuando tengas cuenta Formspree
 
+        // CVs
+        public const string CvEs = "archivos/CVVictor_Rubin.pdf";
+        public const string CvEn = "archivos/CVVictor_Rubin_English.pdf";
+
         // Trackify
         public const string TrackifyFrontend = "https://github.com/Victorr501/TRACKIFY_FrontEnd";
         public const string TrackifyBackend = "https://github.com/Victorr501/TRACKIFY_BackEnd";
