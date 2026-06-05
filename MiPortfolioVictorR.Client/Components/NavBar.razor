@@ -1,6 +1,8 @@
-﻿@* ── src/MiPortfolioVictorR.Client/Components/NavBar.razor ── *@
+@* ── src/MiPortfolioVictorR.Client/Components/NavBar.razor ── *@
 @inject NavigationManager Nav
+@inject LanguageService LangService
 @using MiPortfolioVictorR.Shared.Constants
+@implements IDisposable
 
 <header class="navbar">
     <nav class="navbar__inner">
@@ -12,16 +14,25 @@
         </button>
 
         <ul class="navbar__links @(_menuOpen ? "navbar__links--open" : "")">
-            <li><NavLink href="@AppRoutes.Home" Match="NavLinkMatch.All" ActiveClass="navbar__link--active" class="navbar__link">Inicio</NavLink></li>
-            <li><NavLink href="@AppRoutes.Experience" ActiveClass="navbar__link--active" class="navbar__link">Experiencia</NavLink></li>
-            <li><NavLink href="@AppRoutes.Projects" ActiveClass="navbar__link--active" class="navbar__link">Proyectos</NavLink></li>
-            <li><NavLink href="@AppRoutes.Education" ActiveClass="navbar__link--active" class="navbar__link">Estudios</NavLink></li>
+            <li><NavLink href="@AppRoutes.Home" Match="NavLinkMatch.All" ActiveClass="navbar__link--active" class="navbar__link">@LangService.Get("Inicio", "Home")</NavLink></li>
+            <li><NavLink href="@AppRoutes.Experience" ActiveClass="navbar__link--active" class="navbar__link">@LangService.Get("Experiencia", "Experience")</NavLink></li>
+            <li><NavLink href="@AppRoutes.Projects" ActiveClass="navbar__link--active" class="navbar__link">@LangService.Get("Proyectos", "Projects")</NavLink></li>
+            <li><NavLink href="@AppRoutes.Education" ActiveClass="navbar__link--active" class="navbar__link">@LangService.Get("Estudios", "Education")</NavLink></li>
 
             <li class="navbar__separator" aria-hidden="true"></li>
 
             <li><NavLink href="@AppRoutes.ChallengeMe" ActiveClass="navbar__link--active navbar__link--featured-active" class="navbar__link navbar__link--featured">ChallengeMe!</NavLink></li>
             <li><NavLink href="@AppRoutes.Trackify" ActiveClass="navbar__link--active navbar__link--featured-active" class="navbar__link navbar__link--featured">Trackify</NavLink></li>
-            
+
+            <li class="navbar__separator" aria-hidden="true"></li>
+
+            <li class="navbar__lang">
+                <button class="navbar__lang-btn @(!LangService.IsEnglish ? "navbar__lang-btn--active" : "")"
+                        @onclick='() => SetLang("es")'>ES</button>
+                <span class="navbar__lang-sep">|</span>
+                <button class="navbar__lang-btn @(LangService.IsEnglish ? "navbar__lang-btn--active" : "")"
+                        @onclick='() => SetLang("en")'>EN</button>
+            </li>
         </ul>
 
     </nav>
@@ -30,4 +41,20 @@
 @code {
     private bool _menuOpen = false;
     private void ToggleMenu() => _menuOpen = !_menuOpen;
+
+    private void SetLang(string lang)
+    {
+        LangService.SetLanguage(lang);
+        _menuOpen = false;
+    }
+
+    protected override void OnInitialized()
+    {
+        LangService.OnLanguageChanged += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        LangService.OnLanguageChanged -= StateHasChanged;
+    }
 }

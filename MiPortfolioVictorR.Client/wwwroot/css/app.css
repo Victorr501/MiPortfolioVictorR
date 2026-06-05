@@ -244,6 +244,43 @@ a {
         border-radius: 1px;
     }
 
+/* ── selector de idioma ── */
+.navbar__lang {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    margin-left: .25rem;
+}
+
+.navbar__lang-sep {
+    font-size: .75rem;
+    color: var(--color-text-muted);
+    user-select: none;
+}
+
+.navbar__lang-btn {
+    background: none;
+    border: none;
+    padding: .2rem .35rem;
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: color .15s, background .15s;
+    font-family: inherit;
+}
+
+    .navbar__lang-btn:hover {
+        color: var(--color-accent);
+    }
+
+    .navbar__lang-btn--active {
+        color: var(--color-accent);
+        background: var(--color-badge-bg);
+    }
+
 /* =====================================================
    SECCIONES GENÉRICAS
    ===================================================== */

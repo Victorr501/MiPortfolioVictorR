@@ -9,6 +9,7 @@ namespace MiPortfolioVictorR.Shared.Models
     public class Course
     {
         public string Name { get; set; } = string.Empty;
+        public string? NameEn { get; set; }
         public string Platform { get; set; } = string.Empty;
         public string? CertificateCode { get; set; }
         public string? Url { get; set; }

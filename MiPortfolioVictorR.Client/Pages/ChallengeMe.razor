@@ -1,32 +1,35 @@
-﻿@* ── src/MiPortfolioVictorR.Client/Pages/ChallengeMe.razor ── *@
+@* ── src/MiPortfolioVictorR.Client/Pages/ChallengeMe.razor ── *@
 @page "/challengeme"
 @inject ChallengeMeService ChallengeMeService
+@inject LanguageService LangService
+@implements IDisposable
 
-<PageTitle>ChallengeMe! — Proyecto · Víctor Rubín Rubio</PageTitle>
+<PageTitle>ChallengeMe! — @LangService.Get("Proyecto", "Project") · Víctor Rubín Rubio</PageTitle>
 
 <div class="page-container">
 
     @* ── HERO ── *@
     <section class="pfc-hero">
         <div class="pfc-hero__meta">
-            <span class="badge-wood">Proyecto Personal</span>
-            <span class="badge-wood">En desarrollo · 2026</span>
+            <span class="badge-wood">@LangService.Get("Proyecto Personal", "Personal Project")</span>
+            <span class="badge-wood">@LangService.Get("En desarrollo · 2026", "In development · 2026")</span>
         </div>
         <h1 class="pfc-hero__title">ChallengeMe!</h1>
         <p class="pfc-hero__desc">
-            Aplicación web de ocio que propone cada día un reto personalizado según tus
-            gustos e intereses. Completa retos, acumula puntos, mantén tu racha y compite
-            en el ranking global.
+            @LangService.Get(
+                "Aplicación web de ocio que propone cada día un reto personalizado según tus gustos e intereses. Completa retos, acumula puntos, mantén tu racha y compite en el ranking global.",
+                "A leisure web app that proposes a daily personalized challenge based on your interests. Complete challenges, earn points, keep your streak and compete on the global leaderboard."
+            )
         </p>
         <div class="pfc-hero__links">
             <a class="btn-wood-primary" href="https://challengme-web-h9b6hmftgtc7cmch.spaincentral-01.azurewebsites.net" target="_blank" rel="noopener noreferrer">
-                Pagina web
+                @LangService.Get("Pagina web", "Website")
             </a>
             <a class="btn-wood-primary" href="https://sincere-marimba-9f4.notion.site/Documentaci-n-ChallengMe-365c4316ddea8023af90d4c33404d84a?source=copy_link" target="_blank" rel="noopener noreferrer">
-                Documentacion Notion
+                @LangService.Get("Documentacion Notion", "Notion Docs")
             </a>
             <a class="btn-wood-outline" href="https://github.com/users/Victorr501/projects/1/views/1" target="_blank" rel="noopener noreferrer">
-                GitHub - Proyecto
+                GitHub - @LangService.Get("Proyecto", "Project")
             </a>
             <a class="btn-wood-outline" href="https://github.com/Victorr501/ChallengMe" target="_blank" rel="noopener noreferrer">
                 GitHub - API - Web
@@ -42,8 +45,8 @@
 
     @* ── FUNCIONALIDADES ── *@
     <section class="section">
-        <div class="section__label">Qué hace</div>
-        <h2 class="section__title">Funcionalidades</h2>
+        <div class="section__label">@LangService.Get("Qué hace", "What it does")</div>
+        <h2 class="section__title">@LangService.Get("Funcionalidades", "Features")</h2>
         <div class="pfc-features">
 
             <div class="pfc-feature">
@@ -53,8 +56,8 @@
                         <path d="M12 8v4l3 3" />
                     </svg>
                 </div>
-                <h3 class="pfc-feature__title">Reto diario personalizado</h3>
-                <p class="pfc-feature__desc">Una IA genera cada día un reto adaptado a tus intereses y nivel de dificultad. Puedes regenerarlo hasta dos veces al día.</p>
+                <h3 class="pfc-feature__title">@LangService.Get("Reto diario personalizado", "Personalized daily challenge")</h3>
+                <p class="pfc-feature__desc">@LangService.Get("Una IA genera cada día un reto adaptado a tus intereses y nivel de dificultad. Puedes regenerarlo hasta dos veces al día.", "An AI generates a daily challenge tailored to your interests and difficulty level. You can regenerate it up to twice a day.")</p>
             </div>
 
             <div class="pfc-feature">
@@ -63,8 +66,8 @@
                         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                     </svg>
                 </div>
-                <h3 class="pfc-feature__title">Rachas y puntos</h3>
-                <p class="pfc-feature__desc">Completa retos consecutivos para construir una racha. Cada reto completado suma puntos y escala posiciones en el ranking global.</p>
+                <h3 class="pfc-feature__title">@LangService.Get("Rachas y puntos", "Streaks and points")</h3>
+                <p class="pfc-feature__desc">@LangService.Get("Completa retos consecutivos para construir una racha. Cada reto completado suma puntos y escala posiciones en el ranking global.", "Complete consecutive challenges to build a streak. Each completed challenge earns points and climbs the global leaderboard.")</p>
             </div>
 
             <div class="pfc-feature">
@@ -73,8 +76,8 @@
                         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                     </svg>
                 </div>
-                <h3 class="pfc-feature__title">Evidencia fotográfica</h3>
-                <p class="pfc-feature__desc">Al completar un reto puedes subir una foto como prueba o recuerdo personal de tu logro del día.</p>
+                <h3 class="pfc-feature__title">@LangService.Get("Evidencia fotográfica", "Photo evidence")</h3>
+                <p class="pfc-feature__desc">@LangService.Get("Al completar un reto puedes subir una foto como prueba o recuerdo personal de tu logro del día.", "When completing a challenge you can upload a photo as proof or a personal memory of your daily achievement.")</p>
             </div>
 
             <div class="pfc-feature">
@@ -85,8 +88,8 @@
                         <line x1="6" y1="20" x2="6" y2="14" />
                     </svg>
                 </div>
-                <h3 class="pfc-feature__title">Ranking global</h3>
-                <p class="pfc-feature__desc">Tabla clasificatoria actualizada diariamente con los usuarios más activos. Consulta tu posición y compara tu progreso con otros.</p>
+                <h3 class="pfc-feature__title">@LangService.Get("Ranking global", "Global leaderboard")</h3>
+                <p class="pfc-feature__desc">@LangService.Get("Tabla clasificatoria actualizada diariamente con los usuarios más activos. Consulta tu posición y compara tu progreso con otros.", "Daily updated leaderboard with the most active users. Check your position and compare your progress with others.")</p>
             </div>
 
         </div>
@@ -95,14 +98,14 @@
     @* ── TECNOLOGÍAS ── *@
     <section class="section">
         <div class="section__label">Stack</div>
-        <h2 class="section__title">Tecnologías usadas</h2>
+        <h2 class="section__title">@LangService.Get("Tecnologías usadas", "Technologies used")</h2>
         <div class="pfc-stack">
             <div class="pfc-stack__item">
-                <span class="pfc-stack__layer">Base de datos SQL</span>
+                <span class="pfc-stack__layer">@LangService.Get("Base de datos SQL", "SQL Database")</span>
                 <span class="pfc-stack__tech">Azure SQL · Dapper</span>
             </div>
             <div class="pfc-stack__item">
-                <span class="pfc-stack__layer">Base de datos NoSQL</span>
+                <span class="pfc-stack__layer">@LangService.Get("Base de datos NoSQL", "NoSQL Database")</span>
                 <span class="pfc-stack__tech">Azure Cosmos DB</span>
             </div>
             <div class="pfc-stack__item">
@@ -110,23 +113,23 @@
                 <span class="pfc-stack__tech">C# · ASP.NET Core · Azure App Service</span>
             </div>
             <div class="pfc-stack__item">
-                <span class="pfc-stack__layer">Inteligencia artificial</span>
+                <span class="pfc-stack__layer">@LangService.Get("Inteligencia artificial", "Artificial Intelligence")</span>
                 <span class="pfc-stack__tech">Google Gemini API</span>
             </div>
             <div class="pfc-stack__item">
-                <span class="pfc-stack__layer">Almacenamiento</span>
+                <span class="pfc-stack__layer">@LangService.Get("Almacenamiento", "Storage")</span>
                 <span class="pfc-stack__tech">Azure Blob Storage</span>
             </div>
             <div class="pfc-stack__item">
-                <span class="pfc-stack__layer">Autenticación</span>
+                <span class="pfc-stack__layer">@LangService.Get("Autenticación", "Authentication")</span>
                 <span class="pfc-stack__tech">Azure Entra ID · Microsoft.Identity.Web</span>
             </div>
             <div class="pfc-stack__item">
-                <span class="pfc-stack__layer">Tareas programadas</span>
+                <span class="pfc-stack__layer">@LangService.Get("Tareas programadas", "Scheduled tasks")</span>
                 <span class="pfc-stack__tech">Azure Functions</span>
             </div>
             <div class="pfc-stack__item">
-                <span class="pfc-stack__layer">Frontend web</span>
+                <span class="pfc-stack__layer">@LangService.Get("Frontend web", "Web frontend")</span>
                 <span class="pfc-stack__tech">Blazor WASM</span>
             </div>
         </div>
@@ -134,57 +137,57 @@
 
     @* ── MOTIVACIÓN ── *@
     <section class="section">
-        <div class="section__label">Por qué lo hago</div>
-        <h2 class="section__title">Motivación</h2>
+        <div class="section__label">@LangService.Get("Por qué lo hago", "Why I'm building it")</div>
+        <h2 class="section__title">@LangService.Get("Motivación", "Motivation")</h2>
         <blockquote class="pfc-quote">
-            ChallengeMe! nace de las ganas de salir de la rutina sin presión.
-            La idea es sencilla: un pequeño reto cada día, adaptado a lo que te gusta,
-            que te saque del modo automático. A la vez es una oportunidad de profundizar
-            en el stack Microsoft Azure y en la integración de IA generativa en aplicaciones reales.
+            @LangService.Get(
+                "ChallengeMe! nace de las ganas de salir de la rutina sin presión. La idea es sencilla: un pequeño reto cada día, adaptado a lo que te gusta, que te saque del modo automático. A la vez es una oportunidad de profundizar en el stack Microsoft Azure y en la integración de IA generativa en aplicaciones reales.",
+                "ChallengeMe! was born from the desire to break routine without pressure. The idea is simple: one small daily challenge, tailored to what you enjoy, that snaps you out of autopilot. It is also an opportunity to go deeper into the Microsoft Azure stack and integrate generative AI into real applications."
+            )
         </blockquote>
     </section>
 
     @* ── ARQUITECTURA ── *@
     <section class="section">
-        <div class="section__label">Diseño técnico</div>
-        <h2 class="section__title">Arquitectura</h2>
+        <div class="section__label">@LangService.Get("Diseño técnico", "Technical design")</div>
+        <h2 class="section__title">@LangService.Get("Arquitectura", "Architecture")</h2>
         <div class="pfc-stack">
             <div class="pfc-stack__item">
-                <span class="pfc-stack__layer">Capa 1 · API</span>
-                <span class="pfc-stack__tech">Controllers · DTOs · Middleware de errores</span>
+                <span class="pfc-stack__layer">@LangService.Get("Capa 1 · API", "Layer 1 · API")</span>
+                <span class="pfc-stack__tech">Controllers · DTOs · @LangService.Get("Middleware de errores", "Error Middleware")</span>
             </div>
             <div class="pfc-stack__item">
-                <span class="pfc-stack__layer">Capa 2 · Servicios</span>
+                <span class="pfc-stack__layer">@LangService.Get("Capa 2 · Servicios", "Layer 2 · Services")</span>
                 <span class="pfc-stack__tech">RetoService · UsuarioService · PuntosService</span>
             </div>
             <div class="pfc-stack__item">
-                <span class="pfc-stack__layer">Capa 3 · Repositorios</span>
+                <span class="pfc-stack__layer">@LangService.Get("Capa 3 · Repositorios", "Layer 3 · Repositories")</span>
                 <span class="pfc-stack__tech">RetoRepository · UsuarioRepository · RankingRepository (Dapper)</span>
             </div>
             <div class="pfc-stack__item">
-                <span class="pfc-stack__layer">Capa 4 · Gemini</span>
+                <span class="pfc-stack__layer">@LangService.Get("Capa 4 · Gemini", "Layer 4 · Gemini")</span>
                 <span class="pfc-stack__tech">GeminiClient · PromptBuilder</span>
             </div>
             <div class="pfc-stack__item">
-                <span class="pfc-stack__layer">Capa 5 · Auth</span>
+                <span class="pfc-stack__layer">@LangService.Get("Capa 5 · Auth", "Layer 5 · Auth")</span>
                 <span class="pfc-stack__tech">AuthService · AzureAdOptions</span>
             </div>
             <div class="pfc-stack__item">
-                <span class="pfc-stack__layer">Capa 6 · Functions</span>
-                <span class="pfc-stack__tech">GenerarRetoDiario (00:00) · ActualizarRanking (24h)</span>
+                <span class="pfc-stack__layer">@LangService.Get("Capa 6 · Functions", "Layer 6 · Functions")</span>
+                <span class="pfc-stack__tech">@LangService.Get("GenerarRetoDiario (00:00) · ActualizarRanking (24h)", "GenerarRetoDiario (00:00) · ActualizarRanking (24h)")</span>
             </div>
         </div>
     </section>
 
     @* ── DIARIO DE DESARROLLO ── *@
     <section class="section">
-        <div class="section__label">Diario de desarrollo</div>
-        <h2 class="section__title">Actualizaciones</h2>
+        <div class="section__label">@LangService.Get("Diario de desarrollo", "Dev diary")</div>
+        <h2 class="section__title">@LangService.Get("Actualizaciones", "Updates")</h2>
         <div class="pfc-progress">
             <div class="pfc-progress__bar">
                 <div class="pfc-progress__fill" style="width: 1%"></div>
             </div>
-            <span class="pfc-progress__label">Proyecto en desarrollo 1%</span>
+            <span class="pfc-progress__label">@LangService.Get("Proyecto en desarrollo 1%", "Project in development 1%")</span>
         </div>
 
         @{
@@ -199,8 +202,8 @@
             <div class="pfc-updates">
                 <div class="pfc-update">
                     <div class="pfc-update__body">
-                        <h3 class="pfc-update__title">Aún sin actualizaciones</h3>
-                        <p class="pfc-update__desc">El desarrollo de ChallengeMe! no ha comenzado todavía. Esta sección se irá completando con el diario de progreso una vez arranque el proyecto.</p>
+                        <h3 class="pfc-update__title">@LangService.Get("Aún sin actualizaciones", "No updates yet")</h3>
+                        <p class="pfc-update__desc">@LangService.Get("El desarrollo de ChallengeMe! no ha comenzado todavía. Esta sección se irá completando con el diario de progreso una vez arranque el proyecto.", "ChallengeMe! development has not started yet. This section will be filled with the progress diary once the project kicks off.")</p>
                     </div>
                 </div>
             </div>
@@ -213,12 +216,12 @@
                     <div class="pfc-update">
                         <div class="pfc-update__date">
                             <span class="pfc-update__day">@update.Date.Day.ToString("00")</span>
-                            <span class="pfc-update__month">@update.Date.ToString("MMM", new System.Globalization.CultureInfo("es-ES"))</span>
+                            <span class="pfc-update__month">@update.Date.ToString("MMM", LangService.IsEnglish ? new System.Globalization.CultureInfo("en-GB") : new System.Globalization.CultureInfo("es-ES"))</span>
                             <span class="pfc-update__year">@update.Date.Year</span>
                         </div>
                         <div class="pfc-update__body">
-                            <h3 class="pfc-update__title">@update.Title</h3>
-                            <p class="pfc-update__desc">@update.Description</p>
+                            <h3 class="pfc-update__title">@LangService.Get(update.Title, update.TitleEn)</h3>
+                            <p class="pfc-update__desc">@LangService.Get(update.Description, update.DescriptionEn)</p>
                         </div>
                     </div>
                 }
@@ -283,4 +286,14 @@
 
 @code {
     private int _updatesPage = 1;
+
+    protected override void OnInitialized()
+    {
+        LangService.OnLanguageChanged += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        LangService.OnLanguageChanged -= StateHasChanged;
+    }
 }

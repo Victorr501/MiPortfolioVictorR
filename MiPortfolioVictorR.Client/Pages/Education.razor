@@ -1,29 +1,31 @@
-﻿@* ── src/MiPortfolioVictorR.Client/Pages/Education.razor ── *@
+@* ── src/MiPortfolioVictorR.Client/Pages/Education.razor ── *@
 @page "/estudios"
 @inject EducationService EducationService
+@inject LanguageService LangService
+@implements IDisposable
 
-<PageTitle>Estudios — Víctor Rubín Rubio</PageTitle>
+<PageTitle>@LangService.Get("Estudios", "Education") — Víctor Rubín Rubio</PageTitle>
 
 <div class="page-container">
 
     @* ── HEADER ── *@
     <section class="edu-page__header">
-        <div class="section__label">Formación</div>
-        <h1 class="edu-page__title">Estudios y cursos</h1>
-        <p class="edu-page__sub">Mi recorrido académico y los cursos que he completado para seguir creciendo.</p>
+        <div class="section__label">@LangService.Get("Formación", "Education")</div>
+        <h1 class="edu-page__title">@LangService.Get("Estudios y cursos", "Education & Courses")</h1>
+        <p class="edu-page__sub">@LangService.Get("Mi recorrido académico y los cursos que he completado para seguir creciendo.", "My academic background and the courses I have completed to keep growing.")</p>
     </section>
 
     @* ── FORMACIÓN ACADÉMICA ── *@
     <section class="section">
-        <div class="section__label">Académico</div>
-        <h2 class="section__title">Formación reglada</h2>
+        <div class="section__label">@LangService.Get("Académico", "Academic")</div>
+        <h2 class="section__title">@LangService.Get("Formación reglada", "Formal Education")</h2>
         <div class="edu-academic">
             @foreach (var edu in EducationService.GetEducation())
             {
                 <div class="edu-academic__item">
                     <div class="edu-academic__period">@edu.Period</div>
                     <div class="edu-academic__body">
-                        <h3 class="edu-academic__title">@edu.Title</h3>
+                        <h3 class="edu-academic__title">@LangService.Get(edu.Title, edu.TitleEn)</h3>
                         <p class="edu-academic__center">@edu.Center · @edu.Location</p>
                     </div>
                 </div>
@@ -33,8 +35,8 @@
 
     @* ── CURSOS ── *@
     <section class="section">
-        <div class="section__label">Aprendizaje continuo</div>
-        <h2 class="section__title">Cursos completados</h2>
+        <div class="section__label">@LangService.Get("Aprendizaje continuo", "Continuous Learning")</div>
+        <h2 class="section__title">@LangService.Get("Cursos completados", "Completed Courses")</h2>
 
         @foreach (var platform in EducationService.GetCourses().Select(c => c.Platform).Distinct())
         {
@@ -51,7 +53,7 @@
                     {
                         <div class="course-item">
                             <div class="course-item__left">
-                                <span class="course-item__name">@course.Name</span>
+                                <span class="course-item__name">@LangService.Get(course.Name, course.NameEn)</span>
                                 @if (!string.IsNullOrEmpty(course.CertificateCode))
                                 {
                                     <span class="course-item__code">@course.CertificateCode</span>
@@ -60,7 +62,7 @@
                             @if (!string.IsNullOrEmpty(course.Url))
                             {
                                 <a href="@course.Url" target="_blank" rel="noopener noreferrer" class="course-item__link">
-                                    Ver certificado →
+                                    @LangService.Get("Ver certificado →", "View certificate →")
                                 </a>
                             }
                         </div>
@@ -83,7 +85,7 @@
                         }
                     </div>
                 }
-                
+
             </div>
         }
     </section>
@@ -98,6 +100,16 @@
 
     private void SetPage(string platform, int page) =>
         _pages[platform] = page;
+
+    protected override void OnInitialized()
+    {
+        LangService.OnLanguageChanged += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        LangService.OnLanguageChanged -= StateHasChanged;
+    }
 }
 
 <style>

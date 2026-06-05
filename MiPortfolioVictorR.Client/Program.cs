@@ -17,5 +17,6 @@ builder.Services.AddScoped<SkillService>();
 builder.Services.AddScoped<TrackifyService>();
 builder.Services.AddScoped<ContactService>();
 builder.Services.AddScoped<ChallengeMeService>();
+builder.Services.AddScoped<LanguageService>();
 
 await builder.Build().RunAsync();

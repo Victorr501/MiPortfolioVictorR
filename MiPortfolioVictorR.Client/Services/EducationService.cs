@@ -1,4 +1,4 @@
-﻿using MiPortfolioVictorR.Shared.Models;
+using MiPortfolioVictorR.Shared.Models;
 
 namespace MiPortfolioVictorR.Client.Services
 {
@@ -9,6 +9,7 @@ namespace MiPortfolioVictorR.Client.Services
             {
                 Period   = "2023 – 2025",
                 Title    = "Grado Superior en Desarrollo de Aplicaciones Multiplataforma",
+                TitleEn  = "Higher National Diploma in Multiplatform Application Development",
                 Center   = "IES Enrique Tierno Galván",
                 Location = "Madrid, España"
             },
@@ -16,6 +17,7 @@ namespace MiPortfolioVictorR.Client.Services
             {
                 Period   = "2021 – 2023",
                 Title    = "Grado Medio en Sistemas Microinformáticos y Redes",
+                TitleEn  = "Intermediate National Diploma in Microcomputer Systems and Networks",
                 Center   = "Salesianos Ciudad de los Muchachos",
                 Location = "Madrid, España"
             },
@@ -23,34 +25,35 @@ namespace MiPortfolioVictorR.Client.Services
             {
                 Period   = "2017 – 2021",
                 Title    = "Educación Secundaria Obligatoria (ESO)",
+                TitleEn  = "Compulsory Secondary Education (ESO)",
                 Center   = "Salesianos Ciudad de los Muchachos",
                 Location = "Madrid, España"
             }
         ];
 
         public List<Course> GetCourses() => [
-            new Course { Name = "Prompting responsable: maximiza la IA en tu negocio", Platform = "Santander Open Academy", CertificateCode = "OA-2025-1027001886068" },
-            new Course { Name = "Copilot",                                              Platform = "Santander Open Academy", CertificateCode = "OA-2025-1023001873792" },
-            new Course { Name = "Cursor con Python: desarrollo inteligente con IA",     Platform = "Santander Open Academy", CertificateCode = "OA-2025-1023001873028" },
-            new Course { Name = "Python",                                               Platform = "Santander Open Academy", CertificateCode = "OA-2025-1024001877514" },
-            new Course { Name = "Curso de Iniciación al Desarrollo con IA",             Platform = "Big School" },
+            new Course { Name = "Prompting responsable: maximiza la IA en tu negocio",  NameEn = "Responsible Prompting: Maximize AI in Your Business",        Platform = "Santander Open Academy", CertificateCode = "OA-2025-1027001886068" },
+            new Course { Name = "Copilot",                                               NameEn = "Copilot",                                                     Platform = "Santander Open Academy", CertificateCode = "OA-2025-1023001873792" },
+            new Course { Name = "Cursor con Python: desarrollo inteligente con IA",      NameEn = "Cursor with Python: Intelligent Development with AI",          Platform = "Santander Open Academy", CertificateCode = "OA-2025-1023001873028" },
+            new Course { Name = "Python",                                                NameEn = "Python",                                                      Platform = "Santander Open Academy", CertificateCode = "OA-2025-1024001877514" },
+            new Course { Name = "Curso de Iniciación al Desarrollo con IA",              NameEn = "Introduction to AI Development Course",                       Platform = "Big School" },
 
             // Cursos de Microsoft
-            new Course {Name     = "Expediente completo Microsoft Learn", Platform = "Microsoft Learn", Url      = "https://learn.microsoft.com/es-es/users/vctorrubnrubio-7324/transcript/deq20c1q5klpg4n"},
-            new Course { Name = "Creación de aplicaciones en .NET con C#",                                          Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/vthujkbm" },
-            new Course { Name = "Escribir el primer código con C# (parte 1)",                                       Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/DUA48YPJ?sharingId=7BA3BE6C81F7F8" },
-            new Course { Name = "Creación y ejecución de aplicaciones de consola de C# sencillas (parte 2)",        Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/FQL7EMVX?sharingId=7BA3BE6C81F7F8" },
-            new Course { Name = "Adición de lógica a aplicaciones de consola de C# (parte 3)",                     Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/AK99ZC57?sharingId=7BA3BE6C81F7F8" },
-            new Course { Name = "Trabajo con datos de variables en aplicaciones de consola de C# (parte 4)",        Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/KCATYSUB?sharingId=7BA3BE6C81F7F8" },
-            new Course { Name = "Creación de métodos en aplicaciones de consola de C# (parte 5)",                   Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/9RBB76ZU?sharingId=7BA3BE6C81F7F8" },
-            new Course { Name = "Depuración de aplicaciones de consola de C# (parte 6)",                           Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/AKUNJSM7?sharingId=7BA3BE6C81F7F8" },
-            new Course { Name = "Comprender los aspectos básicos de ASP.NET Core",                                  Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/9RDHDWKU?sharingId=7BA3BE6C81F7F8" },
-            new Course { Name = "Compilación de aplicaciones web con ASP.NET Core para principiantes",              Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/ZD8QVFS2?sharingId=7BA3BE6C81F7F8" },
-            new Course { Name = "Creación de aplicaciones y servicios nativos en la nube con .NET y ASP.NET Core", Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/B9ZLCCRD?sharingId=7BA3BE6C81F7F8" },
-            new Course { Name = "Introducción a la infraestructura en la nube: Conceptos de la nube",               Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/7BHGYNDZ?sharingId=7BA3BE6C81F7F8" },
-            new Course { Name = "Introducción a la infraestructura en la nube: Arquitectura y servicios de Azure",  Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/AK3Y6TA7?sharingId=7BA3BE6C81F7F8" },
-            new Course { Name = "Introducción a la infraestructura en la nube: Administración y gobernanza de Azure", Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/AK3Y9BN7?sharingId=7BA3BE6C81F7F8" },
-            
+            new Course { Name = "Expediente completo Microsoft Learn",                                                        NameEn = "Full Microsoft Learn Transcript",                                                  Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/es-es/users/vctorrubnrubio-7324/transcript/deq20c1q5klpg4n"},
+            new Course { Name = "Creación de aplicaciones en .NET con C#",                                                    NameEn = "Building .NET Applications with C#",                                               Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/vthujkbm" },
+            new Course { Name = "Escribir el primer código con C# (parte 1)",                                                 NameEn = "Write Your First Code with C# (Part 1)",                                          Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/DUA48YPJ?sharingId=7BA3BE6C81F7F8" },
+            new Course { Name = "Creación y ejecución de aplicaciones de consola de C# sencillas (parte 2)",                  NameEn = "Create and Run Simple C# Console Applications (Part 2)",                           Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/FQL7EMVX?sharingId=7BA3BE6C81F7F8" },
+            new Course { Name = "Adición de lógica a aplicaciones de consola de C# (parte 3)",                               NameEn = "Add Logic to C# Console Applications (Part 3)",                                    Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/AK99ZC57?sharingId=7BA3BE6C81F7F8" },
+            new Course { Name = "Trabajo con datos de variables en aplicaciones de consola de C# (parte 4)",                  NameEn = "Work with Variable Data in C# Console Applications (Part 4)",                      Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/KCATYSUB?sharingId=7BA3BE6C81F7F8" },
+            new Course { Name = "Creación de métodos en aplicaciones de consola de C# (parte 5)",                             NameEn = "Create Methods in C# Console Applications (Part 5)",                               Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/9RBB76ZU?sharingId=7BA3BE6C81F7F8" },
+            new Course { Name = "Depuración de aplicaciones de consola de C# (parte 6)",                                     NameEn = "Debug C# Console Applications (Part 6)",                                           Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/AKUNJSM7?sharingId=7BA3BE6C81F7F8" },
+            new Course { Name = "Comprender los aspectos básicos de ASP.NET Core",                                            NameEn = "Understand ASP.NET Core Fundamentals",                                             Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/9RDHDWKU?sharingId=7BA3BE6C81F7F8" },
+            new Course { Name = "Compilación de aplicaciones web con ASP.NET Core para principiantes",                        NameEn = "Build Web Apps with ASP.NET Core for Beginners",                                   Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/ZD8QVFS2?sharingId=7BA3BE6C81F7F8" },
+            new Course { Name = "Creación de aplicaciones y servicios nativos en la nube con .NET y ASP.NET Core",           NameEn = "Build Cloud-Native Apps and Services with .NET and ASP.NET Core",                   Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/B9ZLCCRD?sharingId=7BA3BE6C81F7F8" },
+            new Course { Name = "Introducción a la infraestructura en la nube: Conceptos de la nube",                         NameEn = "Introduction to Cloud Infrastructure: Cloud Concepts",                             Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/7BHGYNDZ?sharingId=7BA3BE6C81F7F8" },
+            new Course { Name = "Introducción a la infraestructura en la nube: Arquitectura y servicios de Azure",            NameEn = "Introduction to Cloud Infrastructure: Azure Architecture and Services",              Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/AK3Y6TA7?sharingId=7BA3BE6C81F7F8" },
+            new Course { Name = "Introducción a la infraestructura en la nube: Administración y gobernanza de Azure",         NameEn = "Introduction to Cloud Infrastructure: Azure Management and Governance",             Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/AK3Y9BN7?sharingId=7BA3BE6C81F7F8" },
+
             // Anthropic
             new Course { Name = "Claude with Google Cloud's Vertex AI",                    Platform = "Anthropic", CertificateCode = "dkuiobpqxrhd", Url= "https://verify.skilljar.com/c/dkuiobpqxrhd" },
             new Course { Name = "Claude in Amazon Bedrock",                                Platform = "Anthropic", CertificateCode = "sokg7x5cq5uk", Url= "https://verify.skilljar.com/c/sokg7x5cq5uk" },

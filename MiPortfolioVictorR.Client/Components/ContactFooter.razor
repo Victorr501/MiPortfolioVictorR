@@ -1,12 +1,14 @@
 ﻿@* ── src/MiPortfolioVictorR.Client/Components/ContactFooter.razor ── *@
 @using MiPortfolioVictorR.Shared.Constants
+@inject LanguageService LangService
+@implements IDisposable
 
 <footer class="contact-footer">
     <div class="contact-footer__inner">
 
         <div class="contact-footer__top">
-            <h2 class="contact-footer__title">¿Hablamos?</h2>
-            <p class="contact-footer__sub">Estoy abierto a nuevas oportunidades y colaboraciones.</p>
+            <h2 class="contact-footer__title">@LangService.Get("¿Hablamos?", "Let's talk?")</h2>
+            <p class="contact-footer__sub">@LangService.Get("Estoy abierto a nuevas oportunidades y colaboraciones.", "I'm open to new opportunities and collaborations.")</p>
         </div>
 
         <div class="contact-footer__links">
@@ -49,8 +51,20 @@
 
         <div class="contact-footer__bottom">
             <span>@AppSettings.FullName · @DateTime.Now.Year</span>
-            <span>Hecho con Blazor WebAssembly + .NET 8</span>
+            <span>@LangService.Get("Hecho con Blazor WebAssembly + .NET 8", "Built with Blazor WebAssembly + .NET 8")</span>
         </div>
 
     </div>
 </footer>
+
+@code {
+    protected override void OnInitialized()
+    {
+        LangService.OnLanguageChanged += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        LangService.OnLanguageChanged -= StateHasChanged;
+    }
+}

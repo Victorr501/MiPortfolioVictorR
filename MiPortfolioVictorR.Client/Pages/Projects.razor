@@ -1,16 +1,18 @@
-﻿@* ── src/MiPortfolioVictorR.Client/Pages/Projects.razor ── *@
+@* ── src/MiPortfolioVictorR.Client/Pages/Projects.razor ── *@
 @page "/proyectos"
 @inject ProjectService ProjectService
+@inject LanguageService LangService
+@implements IDisposable
 
-<PageTitle>Proyectos — Víctor Rubín Rubio</PageTitle>
+<PageTitle>@LangService.Get("Proyectos", "Projects") — Víctor Rubín Rubio</PageTitle>
 
 <div class="page-container">
 
     @* ── HEADER ── *@
     <section class="proj-page__header">
-        <div class="section__label">Trabajo</div>
-        <h1 class="proj-page__title">Proyectos</h1>
-        <p class="proj-page__sub">Estos son los resultados de mi aprendizaje, plasmados en cada proyecto. Explóralos, aprende y úsalos si quieres.</p>
+        <div class="section__label">@LangService.Get("Trabajo", "Work")</div>
+        <h1 class="proj-page__title">@LangService.Get("Proyectos", "Projects")</h1>
+        <p class="proj-page__sub">@LangService.Get("Estos son los resultados de mi aprendizaje, plasmados en cada proyecto. Explóralos, aprende y úsalos si quieres.", "These are the results of my learning, reflected in each project. Explore them, learn from them and use them if you like.")</p>
     </section>
 
     @* ── LISTA DE PROYECTOS ── *@
@@ -27,13 +29,13 @@
                     <span class="proj-row__num">@globalIndex.ToString("00")</span>
                     <div class="proj-row__body">
                         <div class="proj-row__top">
-                            <h2 class="proj-row__title">@project.Title</h2>
+                            <h2 class="proj-row__title">@LangService.Get(project.Title, project.TitleEn)</h2>
                             @if (project.IsFeatured)
                             {
-                                <span class="badge-wood">Destacado</span>
+                                <span class="badge-wood">@LangService.Get("Destacado", "Featured")</span>
                             }
                         </div>
-                        <p class="proj-row__desc">@project.Description</p>
+                        <p class="proj-row__desc">@LangService.Get(project.Description, project.DescriptionEn)</p>
                         <div class="proj-row__tags">
                             @foreach (var tag in project.Tags)
                             {
@@ -56,7 +58,7 @@
                                     <circle cx="12" cy="12" r="10" />
                                     <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                                 </svg>
-                                Ver web
+                                @LangService.Get("Ver web", "View site")
                             </a>
                         }
                         @if (!string.IsNullOrEmpty(project.GitHubUrlBackend))
@@ -91,7 +93,7 @@
         @if (totalPages > 1)
         {
             <div class="proj-pagination">
-                <button class="proj-pagination__btn" disabled="@(_page == 1)" @onclick="PrevPage">← Anterior</button>
+                <button class="proj-pagination__btn" disabled="@(_page == 1)" @onclick="PrevPage">← @LangService.Get("Anterior", "Previous")</button>
                 <div class="proj-pagination__pages">
                     @for (int p = 1; p <= totalPages; p++)
                     {
@@ -99,7 +101,7 @@
                         <button class="proj-pagination__num @(_page == pageNum ? "proj-pagination__num--active" : "")" @onclick="() => GoToPage(pageNum)">@pageNum</button>
                     }
                 </div>
-                <button class="proj-pagination__btn" disabled="@(_page == totalPages)" @onclick="NextPage">Siguiente →</button>
+                <button class="proj-pagination__btn" disabled="@(_page == totalPages)" @onclick="NextPage">@LangService.Get("Siguiente", "Next") →</button>
             </div>
         }
     </section>
@@ -113,4 +115,14 @@
     private void PrevPage() { if (_page > 1) _page--; }
     private void NextPage() { var total = ProjectService.GetProjects().Count; var totalPages = (int)Math.Ceiling(total / (double)PageSize); if (_page < totalPages) _page++; }
     private void GoToPage(int p) => _page = p;
+
+    protected override void OnInitialized()
+    {
+        LangService.OnLanguageChanged += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        LangService.OnLanguageChanged -= StateHasChanged;
+    }
 }

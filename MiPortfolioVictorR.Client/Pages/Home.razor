@@ -1,27 +1,31 @@
-﻿@* ── src/MiPortfolioVictorR.Client/Pages/Home.razor ── *@
+@* ── src/MiPortfolioVictorR.Client/Pages/Home.razor ── *@
 @page "/"
 @inject ProjectService ProjectService
 @inject ExperienceService ExperienceService
 @inject SkillService SkillService
+@inject LanguageService LangService
+@implements IDisposable
 
-<PageTitle>Víctor Rubín Rubio — Desarrollador</PageTitle>
+<PageTitle>Víctor Rubín Rubio — @LangService.Get("Desarrollador", "Developer")</PageTitle>
 
 <div class="page-container">
 
     @* ── HERO ── *@
     <section class="hero">
         <div class="hero__left">
-            <span class="hero__tag">Desarrollador Junior · Microsoft Stack</span>
+            <span class="hero__tag">@LangService.Get("Desarrollador Junior · Microsoft Stack", "Junior Developer · Microsoft Stack")</span>
             <h1 class="hero__name">
                 Víctor <span class="hero__name--accent">Rubín Rubio</span>
             </h1>
             <p class="hero__bio">
-                Desarrollador de aplicaciones multiplataforma y administrador de sistemas.
-                Apasionado por el aprendizaje constante y el trabajo en equipo.
+                @LangService.Get(
+                    "Desarrollador de aplicaciones multiplataforma y administrador de sistemas. Apasionado por el aprendizaje constante y el trabajo en equipo.",
+                    "Multiplatform application developer and systems administrator. Passionate about continuous learning and teamwork."
+                )
             </p>
             <div class="hero__btns">
-                <a class="btn-wood-primary" href="@AppRoutes.Projects">Ver proyectos</a>
-                <a class="btn-wood-outline" href="archivos/CVVictor_Rubin.pdf" download>Descargar CV</a>
+                <a class="btn-wood-primary" href="@AppRoutes.Projects">@LangService.Get("Ver proyectos", "View projects")</a>
+                <a class="btn-wood-outline" href="archivos/CVVictor_Rubin.pdf" download>@LangService.Get("Descargar CV", "Download CV")</a>
             </div>
             <div class="hero__badges">
                 <span class="badge-wood">C# · .NET 8</span>
@@ -39,20 +43,20 @@
                 <img src="images/IMG_0583.JPEG" alt="Víctor Rubín Rubio" class="hero__photo-img" />
             </div>
             <div class="hero__photo hero__photo--sm">
-                <img src="images/Gemini_Generated_Image_7fmcit7fmcit7fmc.png" alt="Setup de programación" class="hero__photo-img" />
+                <img src="images/Gemini_Generated_Image_7fmcit7fmcit7fmc.png" alt="@LangService.Get("Setup de programación", "Programming setup")" class="hero__photo-img" />
             </div>
             <div class="hero__photo hero__photo--sm">
-                <img src="images/Gemini_Generated_Image_9ol3qh9ol3qh9ol3.png" alt="Espacio de trabajo" class="hero__photo-img" />
+                <img src="images/Gemini_Generated_Image_9ol3qh9ol3qh9ol3.png" alt="@LangService.Get("Espacio de trabajo", "Workspace")" class="hero__photo-img" />
             </div>
         </div>
     </section>
 
     @* ── EXPERIENCIA (resumen) ── *@
     <section class="section">
-        <div class="section__label">Trayectoria</div>
+        <div class="section__label">@LangService.Get("Trayectoria", "Career")</div>
         <div class="section__header">
-            <h2 class="section__title">Experiencia laboral</h2>
-            <a class="section__link" href="@AppRoutes.Experience">Ver todo →</a>
+            <h2 class="section__title">@LangService.Get("Experiencia laboral", "Work Experience")</h2>
+            <a class="section__link" href="@AppRoutes.Experience">@LangService.Get("Ver todo →", "View all →")</a>
         </div>
         <div class="timeline">
             @foreach (var exp in ExperienceService.GetByType(ExperienceType.Developer))
@@ -64,9 +68,9 @@
                     </div>
                     <div class="timeline__content">
                         <span class="timeline__period">@exp.Period</span>
-                        <h3 class="timeline__role">@exp.Role</h3>
+                        <h3 class="timeline__role">@LangService.Get(exp.Role, exp.RoleEn)</h3>
                         <p class="timeline__company">@exp.Company · @exp.Location</p>
-                        <p class="timeline__desc">@exp.Descriptions.First()</p>
+                        <p class="timeline__desc">@LangService.Get(exp.Descriptions.First(), exp.DescriptionsEn?.FirstOrDefault())</p>
                     </div>
                 </div>
             }
@@ -75,19 +79,19 @@
 
     @* ── PROYECTOS GRANDES ── *@
     <section class="section">
-        <div class="section__label">Proyectos destacados</div>
-        <h2 class="section__title">Proyectos grandes</h2>
+        <div class="section__label">@LangService.Get("Proyectos destacados", "Featured Projects")</div>
+        <h2 class="section__title">@LangService.Get("Proyectos grandes", "Main Projects")</h2>
         <div class="big-projects">
 
             <div class="big-project-banner">
                 <div class="big-project-banner__content">
                     <div class="big-project-banner__meta">
-                        <span class="badge-wood">Proyecto Fin de Ciclo</span>
+                        <span class="badge-wood">@LangService.Get("Proyecto Fin de Ciclo", "Final Degree Project")</span>
                         <span class="badge-wood">DAM · 2025</span>
-                        <span class="badge-wood">Completado</span>
+                        <span class="badge-wood">@LangService.Get("Completado", "Completed")</span>
                     </div>
                     <h3 class="big-project-banner__title">Trackify</h3>
-                    <p class="big-project-banner__desc">App móvil para gestionar hábitos diarios y semanales con rachas entre amigos, estadísticas visuales y seguimiento de progreso personal.</p>
+                    <p class="big-project-banner__desc">@LangService.Get("App móvil para gestionar hábitos diarios y semanales con rachas entre amigos, estadísticas visuales y seguimiento de progreso personal.", "Mobile app to manage daily and weekly habits with friend streaks, visual stats and personal progress tracking.")</p>
                     <div class="big-project-banner__tags">
                         <span class="badge-wood">React Native</span>
                         <span class="badge-wood">FastAPI</span>
@@ -96,7 +100,7 @@
                     </div>
                 </div>
                 <div class="big-project-banner__action">
-                    <a class="btn-wood-primary" href="@AppRoutes.Trackify">Ver proyecto →</a>
+                    <a class="btn-wood-primary" href="@AppRoutes.Trackify">@LangService.Get("Ver proyecto →", "View project →")</a>
                 </div>
                 <span class="big-project-banner__number">01</span>
             </div>
@@ -104,12 +108,12 @@
             <div class="big-project-banner">
                 <div class="big-project-banner__content">
                     <div class="big-project-banner__meta">
-                        <span class="badge-wood">Proyecto Personal</span>
+                        <span class="badge-wood">@LangService.Get("Proyecto Personal", "Personal Project")</span>
                         <span class="badge-wood">2026</span>
-                        <span class="badge-wood">En desarrollo</span>
+                        <span class="badge-wood">@LangService.Get("En desarrollo", "In development")</span>
                     </div>
                     <h3 class="big-project-banner__title">ChallengeMe!</h3>
-                    <p class="big-project-banner__desc">App web que propone un reto diario personalizado con IA. Rachas, puntos, ranking global y evidencia fotográfica para salir de la rutina sin presión.</p>
+                    <p class="big-project-banner__desc">@LangService.Get("App web que propone un reto diario personalizado con IA. Rachas, puntos, ranking global y evidencia fotográfica para salir de la rutina sin presión.", "Web app that proposes a daily personalized challenge using AI. Streaks, points, global ranking and photo evidence to break the routine without pressure.")</p>
                     <div class="big-project-banner__tags">
                         <span class="badge-wood">C# · ASP.NET Core</span>
                         <span class="badge-wood">Blazor WASM</span>
@@ -118,7 +122,7 @@
                     </div>
                 </div>
                 <div class="big-project-banner__action">
-                    <a class="btn-wood-primary" href="@AppRoutes.ChallengeMe">Ver proyecto →</a>
+                    <a class="btn-wood-primary" href="@AppRoutes.ChallengeMe">@LangService.Get("Ver proyecto →", "View project →")</a>
                 </div>
                 <span class="big-project-banner__number">02</span>
             </div>
@@ -128,18 +132,18 @@
 
     @* ── PROYECTOS DESTACADOS ── *@
     <section class="section">
-        <div class="section__label">Trabajo</div>
+        <div class="section__label">@LangService.Get("Trabajo", "Work")</div>
         <div class="section__header">
-            <h2 class="section__title">Proyectos destacados</h2>
-            <a class="section__link" href="@AppRoutes.Projects">Ver todos →</a>
+            <h2 class="section__title">@LangService.Get("Proyectos destacados", "Featured Projects")</h2>
+            <a class="section__link" href="@AppRoutes.Projects">@LangService.Get("Ver todos →", "View all →")</a>
         </div>
         <div class="projects-grid">
             @foreach (var project in ProjectService.GetFeatured())
             {
                 <div class="card-wood card-wood--featured">
-                    <span class="badge-wood" style="margin-bottom: 0.5rem; display: inline-block;">Destacado</span>
-                    <h3 class="proj__title">@project.Title</h3>
-                    <p class="proj__desc">@project.Description</p>
+                    <span class="badge-wood" style="margin-bottom: 0.5rem; display: inline-block;">@LangService.Get("Destacado", "Featured")</span>
+                    <h3 class="proj__title">@LangService.Get(project.Title, project.TitleEn)</h3>
+                    <p class="proj__desc">@LangService.Get(project.Description, project.DescriptionEn)</p>
                     <div class="proj__tags">
                         @foreach (var tag in project.Tags.Take(3))
                         {
@@ -150,7 +154,7 @@
                         <a href="@project.GitHubUrl" target="_blank" rel="noopener noreferrer" class="proj__link">GitHub</a>
                         @if (!string.IsNullOrEmpty(project.LiveUrl))
                         {
-                            <a href="@project.LiveUrl" target="_blank" rel="noopener noreferrer" class="proj__link">Ver web →</a>
+                            <a href="@project.LiveUrl" target="_blank" rel="noopener noreferrer" class="proj__link">@LangService.Get("Ver web →", "View site →")</a>
                         }
                         @if (!string.IsNullOrEmpty(project.YouTubeUrl))
                         {
@@ -166,7 +170,7 @@
     @* ── TECNOLOGÍAS ── *@
     <section class="section">
         <div class="section__label">Stack</div>
-        <h2 class="section__title">Tecnologías</h2>
+        <h2 class="section__title">@LangService.Get("Tecnologías", "Technologies")</h2>
         <div class="skills-grid">
             @foreach (var category in SkillService.GetCategories())
             {
@@ -188,23 +192,23 @@
 
     @* ── ESTUDIOS (resumen) ── *@
     <section class="section">
-        <div class="section__label">Formación</div>
+        <div class="section__label">@LangService.Get("Formación", "Education")</div>
         <div class="section__header">
-            <h2 class="section__title">Estudios</h2>
-            <a class="section__link" href="@AppRoutes.Education">Ver cursos →</a>
+            <h2 class="section__title">@LangService.Get("Estudios", "Education")</h2>
+            <a class="section__link" href="@AppRoutes.Education">@LangService.Get("Ver cursos →", "View courses →")</a>
         </div>
         <div class="edu-list">
             <div class="edu-item">
                 <span class="edu-item__period">2023 – 2025</span>
                 <div>
-                    <p class="edu-item__title">Grado Superior en Desarrollo de Aplicaciones Multiplataforma</p>
+                    <p class="edu-item__title">@LangService.Get("Grado Superior en Desarrollo de Aplicaciones Multiplataforma", "Higher National Diploma in Multiplatform Application Development")</p>
                     <p class="edu-item__center">IES Enrique Tierno Galván · Madrid</p>
                 </div>
             </div>
             <div class="edu-item">
                 <span class="edu-item__period">2021 – 2023</span>
                 <div>
-                    <p class="edu-item__title">Grado Medio en Sistemas Microinformáticos y Redes</p>
+                    <p class="edu-item__title">@LangService.Get("Grado Medio en Sistemas Microinformáticos y Redes", "Intermediate National Diploma in Microcomputer Systems and Networks")</p>
                     <p class="edu-item__center">Salesianos Ciudad de los Muchachos · Madrid</p>
                 </div>
             </div>
@@ -212,3 +216,15 @@
     </section>
 
 </div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        LangService.OnLanguageChanged += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        LangService.OnLanguageChanged -= StateHasChanged;
+    }
+}

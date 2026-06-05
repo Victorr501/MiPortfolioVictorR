@@ -10,7 +10,9 @@ namespace MiPortfolioVictorR.Shared.Models
     {
         public int Id { get; set; }
         public string Title { get; set; } = string.Empty;
+        public string? TitleEn { get; set; }
         public string Description { get; set; } = string.Empty;
+        public string? DescriptionEn { get; set; }
         public string GitHubUrl { get; set; } = string.Empty;
         public string? GitHubUrlBackend { get; set; }
         public string? LiveUrl { get; set; }

@@ -10,6 +10,7 @@ namespace MiPortfolioVictorR.Shared.Models
     {
         public string Period { get; set; } = string.Empty;
         public string Title { get; set; } = string.Empty;
+        public string? TitleEn { get; set; }
         public string Center { get; set; } = string.Empty;
         public string Location { get; set;  } = string.Empty;
     }

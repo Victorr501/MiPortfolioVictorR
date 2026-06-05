@@ -1,23 +1,25 @@
-﻿@* ── src/MiPortfolioVictorR.Client/Pages/Experience.razor ── *@
+@* ── src/MiPortfolioVictorR.Client/Pages/Experience.razor ── *@
 @page "/experiencia"
 @inject ExperienceService ExperienceService
+@inject LanguageService LangService
+@implements IDisposable
 
-<PageTitle>Experiencia — Víctor Rubín Rubio</PageTitle>
+<PageTitle>@LangService.Get("Experiencia", "Experience") — Víctor Rubín Rubio</PageTitle>
 
 <div class="page-container">
 
     @* ── HEADER ── *@
     <section class="exp-page__header">
-        <div class="section__label">Trayectoria</div>
-        <h1 class="exp-page__title">Experiencia laboral</h1>
-        <p class="exp-page__sub">Mi recorrido profesional, desde desarrollo de software hasta atención al cliente y voluntariado.</p>
+        <div class="section__label">@LangService.Get("Trayectoria", "Career")</div>
+        <h1 class="exp-page__title">@LangService.Get("Experiencia laboral", "Work Experience")</h1>
+        <p class="exp-page__sub">@LangService.Get("Mi recorrido profesional, desde desarrollo de software hasta atención al cliente y voluntariado.", "My professional journey, from software development to customer service and volunteering.")</p>
     </section>
 
     @* ── DEVELOPER ── *@
     <section class="section">
         <div class="exp-block__label">
             <span class="exp-block__dot exp-block__dot--dev"></span>
-            Como desarrollador
+            @LangService.Get("Como desarrollador", "As a developer")
         </div>
         <div class="exp-timeline">
             @foreach (var exp in ExperienceService.GetByType(ExperienceType.Developer))
@@ -29,11 +31,16 @@
                     </div>
                     <div class="exp-card__body">
                         <div class="exp-card__header">
-                            <h2 class="exp-card__role">@exp.Role</h2>
+                            <h2 class="exp-card__role">@LangService.Get(exp.Role, exp.RoleEn)</h2>
                             <span class="exp-card__company">@exp.Company</span>
                         </div>
                         <ul class="exp-card__list">
-                            @foreach (var desc in exp.Descriptions)
+                            @{
+                                var descs = LangService.IsEnglish && exp.DescriptionsEn?.Count > 0
+                                    ? exp.DescriptionsEn
+                                    : exp.Descriptions;
+                            }
+                            @foreach (var desc in descs)
                             {
                                 <li>@desc</li>
                             }
@@ -48,7 +55,7 @@
     <section class="section">
         <div class="exp-block__label">
             <span class="exp-block__dot exp-block__dot--generic"></span>
-            Experiencia genérica
+            @LangService.Get("Experiencia genérica", "General Experience")
         </div>
         <div class="exp-timeline">
             @foreach (var exp in ExperienceService.GetByType(ExperienceType.Generic))
@@ -60,11 +67,16 @@
                     </div>
                     <div class="exp-card__body">
                         <div class="exp-card__header">
-                            <h2 class="exp-card__role">@exp.Role</h2>
+                            <h2 class="exp-card__role">@LangService.Get(exp.Role, exp.RoleEn)</h2>
                             <span class="exp-card__company">@exp.Company</span>
                         </div>
                         <ul class="exp-card__list">
-                            @foreach (var desc in exp.Descriptions)
+                            @{
+                                var descs = LangService.IsEnglish && exp.DescriptionsEn?.Count > 0
+                                    ? exp.DescriptionsEn
+                                    : exp.Descriptions;
+                            }
+                            @foreach (var desc in descs)
                             {
                                 <li>@desc</li>
                             }
@@ -79,7 +91,7 @@
     <section class="section">
         <div class="exp-block__label">
             <span class="exp-block__dot exp-block__dot--vol"></span>
-            Voluntariados
+            @LangService.Get("Voluntariados", "Volunteering")
         </div>
         <div class="exp-timeline">
             @foreach (var exp in ExperienceService.GetByType(ExperienceType.Volunteer))
@@ -91,11 +103,16 @@
                     </div>
                     <div class="exp-card__body">
                         <div class="exp-card__header">
-                            <h2 class="exp-card__role">@exp.Role</h2>
+                            <h2 class="exp-card__role">@LangService.Get(exp.Role, exp.RoleEn)</h2>
                             <span class="exp-card__company">@exp.Company</span>
                         </div>
                         <ul class="exp-card__list">
-                            @foreach (var desc in exp.Descriptions)
+                            @{
+                                var descs = LangService.IsEnglish && exp.DescriptionsEn?.Count > 0
+                                    ? exp.DescriptionsEn
+                                    : exp.Descriptions;
+                            }
+                            @foreach (var desc in descs)
                             {
                                 <li>@desc</li>
                             }
@@ -107,3 +124,15 @@
     </section>
 
 </div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        LangService.OnLanguageChanged += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        LangService.OnLanguageChanged -= StateHasChanged;
+    }
+}
