@@ -7,6 +7,14 @@ namespace MiPortfolioVictorR.Client.Services
         public List<Education> GetEducation() => [
             new Education
             {
+                Period   = "2026 – Present",
+                Title    = "Grado Universitario en Ingeniería Informática",
+                TitleEn  = "Bachelor's Degree in Computer Engineering",
+                Center   = "Universidad Nacional de Educación a Distancia",
+                Location = "Madrid, España"
+            },
+            new Education
+            {
                 Period   = "2023 – 2025",
                 Title    = "Grado Superior en Desarrollo de Aplicaciones Multiplataforma",
                 TitleEn  = "Higher National Diploma in Multiplatform Application Development",
