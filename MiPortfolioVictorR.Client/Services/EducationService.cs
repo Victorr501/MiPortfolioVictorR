@@ -10,7 +10,7 @@ namespace MiPortfolioVictorR.Client.Services
                 Period   = "2026 – Present",
                 Title    = "Grado Universitario en Ingeniería Informática",
                 TitleEn  = "Bachelor's Degree in Computer Engineering",
-                Center   = "Universidad Nacional de Educación a Distancia",
+                Center   = "Universidad Internacional de La Rioja - Online",
                 Location = "Madrid, España"
             },
             new Education
