@@ -8,6 +8,43 @@
 
 <div class="page-container">
 
+    @* ── ESTILOS INYECTADOS DIRECTAMENTE ── *@
+    <style>
+            .contenedor-filtros {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+                margin-top: 2.5rem !important; /* Separación forzada de la línea */
+                margin-bottom: 2rem !important;
+            }
+
+            .boton-filtro {
+                background: var(--color-badge-bg);
+                color: var(--color-badge-text);
+                border: 0.5px solid var(--color-badge-border);
+                font-size: .8rem;
+                padding: 6px 16px;
+                border-radius: 20px;
+                cursor: pointer;
+                opacity: 0.5;
+                transition: all 0.2s ease;
+                font-family: inherit;
+                font-weight: 500;
+                outline: none;
+            }
+
+                .boton-filtro:hover {
+                    opacity: 0.8;
+                    transform: translateY(-1px);
+                }
+
+            .boton-filtro--activo {
+                opacity: 1 !important;
+                font-weight: 700;
+                box-shadow: 0 2px 4px rgba(146, 64, 14, 0.15);
+            }
+    </style>
+
     @* ── HEADER ── *@
     <section class="proj-page__header">
         <div class="section__label">@LangService.Get("Trabajo", "Work")</div>
@@ -15,12 +52,34 @@
         <p class="proj-page__sub">@LangService.Get("Estos son los resultados de mi aprendizaje, plasmados en cada proyecto. Explóralos, aprende y úsalos si quieres.", "These are the results of my learning, reflected in each project. Explore them, learn from them and use them if you like.")</p>
     </section>
 
+    @* ── FILTROS DE CATEGORÍA ── *@
+    <section class="contenedor-filtros">
+        <button class="boton-filtro @(string.IsNullOrEmpty(_selectedCategory) ? "boton-filtro--activo" : "")"
+                @onclick="() => FilterByCategory(null)">
+            @LangService.Get("Todos", "All")
+        </button>
+
+        @foreach (var cat in ProjectService.GetDistinctCategories())
+        {
+            <button class="boton-filtro @(_selectedCategory == cat ? "boton-filtro--activo" : "")"
+                    @onclick="() => FilterByCategory(cat)">
+                @cat
+            </button>
+        }
+    </section>
+
     @* ── LISTA DE PROYECTOS ── *@
     <section class="section">
         <div class="proj-list">
             @{
-                var paged = ProjectService.GetProjects().Skip((_page - 1) * PageSize).Take(PageSize).ToList();
+                // NUEVO: Obtenemos los proyectos filtrados antes de paginar
+                var filteredProjects = string.IsNullOrEmpty(_selectedCategory)
+                                        ? ProjectService.GetProjects()
+                                        : ProjectService.GetByCategory(_selectedCategory);
+
+                var paged = filteredProjects.Skip((_page - 1) * PageSize).Take(PageSize).ToList();
             }
+
             @for (int i = 0; i < paged.Count; i++)
             {
                 var project = paged[i];
@@ -88,8 +147,11 @@
 
         @* ── PAGINACIÓN ── *@
         @{
-            var total = ProjectService.GetProjects().Count; var totalPages = (int)Math.Ceiling(total / (double)PageSize);
+            // NUEVO: La paginación ahora cuenta los proyectos filtrados, no todos
+            var total = filteredProjects.Count;
+            var totalPages = (int)Math.Ceiling(total / (double)PageSize);
         }
+
         @if (totalPages > 1)
         {
             <div class="proj-pagination">
@@ -105,15 +167,37 @@
             </div>
         }
     </section>
-
 </div>
 
 @code {
     private const int PageSize = 10;
     private int _page = 1;
 
+    // NUEVO: Estado para guardar la categoría seleccionada
+    private string? _selectedCategory = null;
+
+    // NUEVO: Método para cambiar de categoría y resetear la página a 1
+    private void FilterByCategory(string? category)
+    {
+        _selectedCategory = category;
+        _page = 1;
+    }
+
     private void PrevPage() { if (_page > 1) _page--; }
-    private void NextPage() { var total = ProjectService.GetProjects().Count; var totalPages = (int)Math.Ceiling(total / (double)PageSize); if (_page < totalPages) _page++; }
+
+    private void NextPage()
+    {
+        // NUEVO: Actualizamos NextPage para que respete el total de páginas filtradas
+        var currentList = string.IsNullOrEmpty(_selectedCategory)
+                            ? ProjectService.GetProjects()
+                            : ProjectService.GetByCategory(_selectedCategory);
+
+        var total = currentList.Count;
+        var totalPages = (int)Math.Ceiling(total / (double)PageSize);
+
+        if (_page < totalPages) _page++;
+    }
+
     private void GoToPage(int p) => _page = p;
 
     protected override void OnInitialized()

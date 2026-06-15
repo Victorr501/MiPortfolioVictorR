@@ -20,5 +20,6 @@ namespace MiPortfolioVictorR.Shared.Models
         public string? ImageUrl { get; set; }
         public List<string> Tags { get; set; }
         public bool IsFeatured { get; set; }
+        public string Category { get; set; } = string.Empty;
     }
 }

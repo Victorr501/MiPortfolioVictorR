@@ -611,6 +611,8 @@ a {
         text-decoration: underline;
     }
 
+
+
 /* =====================================================
    PROYECTOS GRANDES (home)
    ===================================================== */
@@ -1392,6 +1394,17 @@ a {
     }
 
 /* =====================================================
+PÁGINA PROYECTOS
+===================================================== */
+
+.proj-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+/* =====================================================
    PÁGINA PROYECTOS
    ===================================================== */
 
@@ -1583,6 +1596,43 @@ a {
     border-color: var(--color-accent) !important;
 }
 
+/* =====================================================
+   NUEVOS FILTROS DE PROYECTOS
+   ===================================================== */
+.contenedor-filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.5rem; /* <-- Esto empuja los botones hacia abajo y los separa de la línea */
+    margin-bottom: 2rem;
+}
+
+.boton-filtro {
+    background: var(--color-badge-bg);
+    color: var(--color-badge-text);
+    border: 0.5px solid var(--color-badge-border);
+    font-size: .8rem;
+    padding: 6px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    opacity: 0.5; /* Desactivados por defecto */
+    transition: all 0.2s ease;
+    font-family: inherit;
+    font-weight: 500;
+    outline: none;
+}
+
+    .boton-filtro:hover {
+        opacity: 0.8;
+        transform: translateY(-1px);
+    }
+
+.boton-filtro--activo {
+    opacity: 1 !important; /* Totalmente visible el que está activo */
+    font-weight: 700;
+    box-shadow: 0 2px 4px rgba(146, 64, 14, 0.15);
+}
+
 
 /* =====================================================
    RESPONSIVE
@@ -1686,4 +1736,5 @@ a {
         gap: .5rem;
         text-align: center;
     }
+
 }
