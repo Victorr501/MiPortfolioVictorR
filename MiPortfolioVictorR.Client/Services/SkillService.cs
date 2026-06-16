@@ -7,20 +7,22 @@ namespace MiPortfolioVictorR.Client.Services
         private const string DevIcons = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
 
         public List<Skill> GetSkills() =>
-        [
-            // Frontend
-            new Skill { Name = "HTML",       Category = "Frontend",    IconUrl = $"{DevIcons}/html5/html5-original.svg" },
-            new Skill { Name = "CSS",        Category = "Frontend",    IconUrl = $"{DevIcons}/css3/css3-original.svg" },
-            new Skill { Name = "Blazor",     Category = "Frontend",    IconUrl = $"{DevIcons}/blazor/blazor-original.svg" },
-            new Skill { Name = "JavaScript", Category = "Frontend",    IconUrl = $"{DevIcons}/javascript/javascript-original.svg" },
-            // Backend
-            new Skill { Name = "C#",         Category = "Backend",     IconUrl = $"{DevIcons}/csharp/csharp-original.svg" },
-            new Skill { Name = "Python",     Category = "Backend",     IconUrl = $"{DevIcons}/python/python-original.svg" },
-            new Skill { Name = "Java",       Category = "Backend",     IconUrl = $"{DevIcons}/java/java-original.svg" },
-            new Skill { Name = "FastAPI",    Category = "Backend",     IconUrl = $"{DevIcons}/fastapi/fastapi-original.svg" },
-            new Skill { Name = "MySQL",      Category = "Backend",     IconUrl = $"{DevIcons}/mysql/mysql-original.svg" },
-            new Skill { Name = "MongoDB",    Category = "Backend",     IconUrl = $"{DevIcons}/mongodb/mongodb-original.svg" },
-            new Skill { Name = "Docker",     Category = "Backend",     IconUrl = $"{DevIcons}/docker/docker-original.svg" },
+        [            // Desarrollo web y APIs
+            new Skill { Name = "HTML",       Category = "Desarrollo Web y APIs",    IconUrl = $"{DevIcons}/html5/html5-original.svg" },
+            new Skill { Name = "CSS",        Category = "Desarrollo Web y APIs",    IconUrl = $"{DevIcons}/css3/css3-original.svg" },
+            new Skill { Name = "JavaScript", Category = "Desarrollo Web y APIs",    IconUrl = $"{DevIcons}/javascript/javascript-original.svg" },
+            new Skill { Name = "React",     Category = "Desarrollo Web y APIs",    IconUrl = $"{DevIcons}/react/react-original.svg" },
+            new Skill { Name = "C#",         Category = "Desarrollo Web y APIs",     IconUrl = $"{DevIcons}/csharp/csharp-original.svg" },
+            new Skill { Name = "ASP.NET Core", Category = "Desarrollo Web y APIs",     IconUrl = $"{DevIcons}/dotnetcore/dotnetcore-original.svg" },
+            new Skill { Name = "Python",     Category = "Desarrollo Web y APIs",     IconUrl = $"{DevIcons}/python/python-original.svg" },
+            new Skill { Name = "FastAPI",    Category = "Desarrollo Web y APIs",     IconUrl = $"{DevIcons}/fastapi/fastapi-original.svg" },
+            new Skill { Name = "Java",       Category = "Desarrollo Web y APIs",     IconUrl = $"{DevIcons}/java/java-original.svg" },
+            new Skill { Name = "MySQL",      Category = "Desarrollo Web y APIs",     IconUrl = $"{DevIcons}/mysql/mysql-original.svg" },
+            new Skill { Name = "MongoDB",    Category = "Desarrollo Web y APIs",     IconUrl = $"{DevIcons}/mongodb/mongodb-original.svg" },
+
+            // Software y Sistemas
+            new Skill { Name = "C++",    Category = "Software y Sistemas",     IconUrl = $"{DevIcons}/cplusplus/cplusplus-original.svg" },
+
             // Herramientas
             new Skill { Name = "GitHub",         Category = "Herramientas", IconUrl = $"{DevIcons}/github/github-original.svg" },
             new Skill { Name = "Git",            Category = "Herramientas", IconUrl = $"{DevIcons}/git/git-original.svg" },
@@ -32,11 +34,13 @@ namespace MiPortfolioVictorR.Client.Services
             new Skill { Name = "SQL Server",     Category = "Herramientas", IconUrl = $"{DevIcons}/azuresqldatabase/azuresqldatabase-original.svg" },
             new Skill { Name = "Azure", Category = "Herramientas", IconUrl = $"{DevIcons}/azure/azure-original.svg"},
             new Skill { Name = "Xcode", Category = "Herramientas", IconUrl = $"{DevIcons}/xcode/xcode-original.svg" },
+            new Skill { Name = "Docker",     Category = "Herramientas",     IconUrl = $"{DevIcons}/docker/docker-original.svg" },
 
             // Aprendiendo
             new Skill {Name = "SVG versions", Category = "Aprendiendo", IconUrl = $"{DevIcons}/githubactions/githubactions-original.svg", IsLearning = true },
             new Skill {Name = "Swift", Category = "Aprendiendo", IconUrl = $"{DevIcons}/swift/swift-original.svg"},
-            new Skill {Name = "Kotlin", Category = "Aprendiendo", IconUrl = $"{DevIcons}/kotlin/kotlin-original.svg"}
+            new Skill {Name = "Kotlin", Category = "Aprendiendo", IconUrl = $"{DevIcons}/kotlin/kotlin-original.svg"},
+            new Skill {Name = "C", Category = "Aprendiendo", IconUrl = $"{DevIcons}/c/c-original.svg"},
         ];
 
         public List<string> GetCategories() =>
