@@ -6,6 +6,17 @@ namespace MiPortfolioVictorR.Client.Services
     {
         public List<Project> GetProjects() => [
             new Project{
+                Id = 17,
+                Title = "Calculadora de Matrices",
+                TitleEn = "Matrix Calculator",
+                Description = "Calculadora de matrices desarrollada con JavaScript y react.js. Permite realizar operaciones como suma, resta, multiplicación y determinante de matrices.",
+                DescriptionEn = "Matrix calculator developed with JavaScript and react.js. Allows performing operations such as addition, subtraction, multiplication and determinant of matrices.",
+                GitHubUrl = "https://github.com/Victorr501/CaluladoraMatrices",
+                Tags = ["JavaScript", "React.js"],
+                IsFeatured = true,
+                Category = "Desarrollo Multiplataforma y Web",
+            },
+            new Project{
                 Id = 15,
                 Title = "Aplicacion Daltonicos",
                 TitleEn = "Color Blindness App",
@@ -38,7 +49,7 @@ namespace MiPortfolioVictorR.Client.Services
                 GitHubUrl = "https://github.com/Victorr501/Aplicacion_Uso_Movil",
                 YouTubeUrl = "https://www.youtube.com/watch?v=2xj4kbRDh-0",
                 Tags = ["Python", "Computer Vision"],
-                IsFeatured = true,
+                IsFeatured = false,
                 Category = "Herramientas y Utilidades"
             },
             new Project
