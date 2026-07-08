@@ -6,6 +6,17 @@ namespace MiPortfolioVictorR.Client.Services
     {
         public List<Project> GetProjects() => [
             new Project{
+                Id = 19,
+                Title = "Trabajo 2: Python Programación Orientada a Objetos",
+                TitleEn = "Assignment 2: Object-Oriented Programming with Python",
+                Description = "Desarrollar un sistema básico de inventario con POO en Python para gestionar productos y realizar operaciones de inventario.",
+                DescriptionEn = "Development of a basic inventory system in Python using OOP to manage products and perform inventory operations.",
+                GitHubUrl = "https://github.com/Victorr501/Trabajo-2-Python-Programaci-n-Orientada-a-Objetos",
+                Tags = ["Python"],
+                IsFeatured = false,
+                Category = "Desarrollo Multiplataforma y Web"
+            },
+            new Project{
                 Id = 18,
                 Title = "Trabajo-1-Sintaxis-Python",
                 TitleEn = "Assignment 1: Python Syntax",
