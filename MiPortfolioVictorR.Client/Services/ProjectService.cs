@@ -6,6 +6,17 @@ namespace MiPortfolioVictorR.Client.Services
     {
         public List<Project> GetProjects() => [
             new Project{
+                Id = 20,
+                Title = "Trabajo 3: Anlisis de datos com Numpy y Pandas",
+                TitleEn = "Assignment 3: Data Analysis with NumPy and Pandas",
+                Description = "Este reto consiste en analizar los datos de ventas, los inventarios y la satisfacción del cliente para una cadena de tiendas minoristas; utilizando Pandas, para la manipulación de datos, y Numpy, para realizar cálculos estadísticos y simulaciones. El objetivo es ayudar a optimizar el rendimiento de las tiendas a través del análisis de estos datos",
+                DescriptionEn = "This project involves analyzing retail sales, inventory levels, and customer satisfaction data using Pandas for data manipulation and NumPy for statistical calculations and simulations. The goal is to optimize store performance through data-driven analysis.",
+                GitHubUrl = "https://github.com/Victorr501/Trabajo-3-An-lisis-de-datos-con-Numpy-y-Pandas",
+                Tags = ["Python", "Pandas", "Numpy"],
+                IsFeatured = false,
+                Category = "Desarrollo Multiplataforma y Web"
+            },
+            new Project{
                 Id = 19,
                 Title = "Trabajo 2: Python Programación Orientada a Objetos",
                 TitleEn = "Assignment 2: Object-Oriented Programming with Python",
