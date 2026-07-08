@@ -6,6 +6,17 @@ namespace MiPortfolioVictorR.Client.Services
     {
         public List<Project> GetProjects() => [
             new Project{
+                Id = 18,
+                Title = "Trabajo-1-Sintaxis-Python",
+                TitleEn = "Assignment 1: Python Syntax",
+                Description = "Desarrollo de una calculadora de promedios escolares en Python utilizando variables, operadores, estructuras de control y funciones básicas.",
+                DescriptionEn = "Development of a school grade average calculator in Python using variables, operators, control structures, and basic functions.",
+                GitHubUrl = "https://github.com/Victorr501/Trabajo-1-Sintaxis-Python",
+                Tags = ["Python"],
+                IsFeatured = false,
+                Category = "Desarrollo Multiplataforma y Web"
+            },
+            new Project{
                 Id = 17,
                 Title = "Calculadora de Matrices",
                 TitleEn = "Matrix Calculator",

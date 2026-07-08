@@ -8,7 +8,7 @@ namespace MiPortfolioVictorR.Client.Services
         [
             new WorkExperience
             {
-                Period   = "Enero 2026 – Presente",
+                Period   = "Enero 2026 – Junio 2026",
                 Role     = "Desarrollador Junior – Tecnologías Microsoft",
                 RoleEn   = "Junior Developer – Microsoft Technologies",
                 Company  = "Agralamo",
@@ -52,6 +52,23 @@ namespace MiPortfolioVictorR.Client.Services
                     "Creation of a WMS integrated with Business Central and a Time Tracking system (Peris).",
                     "Stack: C#, Blazor WASM, SQL, Docker/Nginx.",
                     "Experience in logistics management, OAuth2 APIs, administrative workflows and auditing."
+                ]
+            },
+            new WorkExperience
+            {
+                Period   = "Junio 2026 – Septiembre 2026",
+                Role     = "Vendedor",
+                RoleEn   = "Sales Associate",
+                Company  = "IKEA",
+                Location = "Madrid",
+                Type     = ExperienceType.Generic,
+                Descriptions =
+                [
+                    "Asistente en cajas y atención al cliente"
+                ],
+                DescriptionsEn =
+                [
+                    "Cashier and customer service assistant"
                 ]
             },
             new WorkExperience
