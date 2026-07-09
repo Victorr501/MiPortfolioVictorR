@@ -6,6 +6,18 @@ namespace MiPortfolioVictorR.Client.Services
     {
         public List<Project> GetProjects() => [
             new Project{
+                Id = 21,
+                Title = "Trabajo 4: Visualización de datos con Matplotlib y Seaborn",
+                TitleEn = "Assignment 4: Data Visualization with Matplotlib and Seaborn",
+                Description = "Creación de visualizaciones con Matplotlib y Seaborn para analizar un conjunto de datos de ventas minoristas.",
+                DescriptionEn = "Creating visualizations with Matplotlib and Seaborn to analyze a retail sales dataset.",
+                GitHubUrl = "https://github.com/Victorr501/Trabajo-4-Visualizaci-n-de-datos-con-Matplotlib-y-Seaborn",
+                Tags = ["Python", "Pandas", "Matplotlib", "Seaborn", "Jypiter"],
+                IsFeatured = false,
+                Category = "Ingenieria Informatica"
+
+            },
+            new Project{
                 Id = 20,
                 Title = "Trabajo 3: Anlisis de datos com Numpy y Pandas",
                 TitleEn = "Assignment 3: Data Analysis with NumPy and Pandas",
@@ -14,7 +26,7 @@ namespace MiPortfolioVictorR.Client.Services
                 GitHubUrl = "https://github.com/Victorr501/Trabajo-3-An-lisis-de-datos-con-Numpy-y-Pandas",
                 Tags = ["Python", "Pandas", "Numpy"],
                 IsFeatured = false,
-                Category = "Desarrollo Multiplataforma y Web"
+                Category = "Ingenieria Informatica"
             },
             new Project{
                 Id = 19,
@@ -25,7 +37,7 @@ namespace MiPortfolioVictorR.Client.Services
                 GitHubUrl = "https://github.com/Victorr501/Trabajo-2-Python-Programaci-n-Orientada-a-Objetos",
                 Tags = ["Python"],
                 IsFeatured = false,
-                Category = "Desarrollo Multiplataforma y Web"
+                Category = "Ingenieria Informatica"
             },
             new Project{
                 Id = 18,
@@ -36,7 +48,7 @@ namespace MiPortfolioVictorR.Client.Services
                 GitHubUrl = "https://github.com/Victorr501/Trabajo-1-Sintaxis-Python",
                 Tags = ["Python"],
                 IsFeatured = false,
-                Category = "Desarrollo Multiplataforma y Web"
+                Category = "Ingenieria Informatica"
             },
             new Project{
                 Id = 17,
