@@ -6,6 +6,18 @@ namespace MiPortfolioVictorR.Client.Services
     {
         public List<Project> GetProjects() => [
             new Project{
+                Id = 17,
+                Title = "Calculadora de Matrices",
+                TitleEn = "Matrix Calculator",
+                Description = "Calculadora de matrices desarrollada con JavaScript y react.js. Permite realizar operaciones como suma, resta, multiplicación y determinante de matrices.",
+                DescriptionEn = "Matrix calculator developed with JavaScript and react.js. Allows performing operations such as addition, subtraction, multiplication and determinant of matrices.",
+                GitHubUrl = "https://github.com/Victorr501/CalculadoraMatrices",
+                LiveUrl = "https://agreeable-river-06a7fb610.5.azurestaticapps.net/",
+                Tags = ["JavaScript", "React.js", "Azure"],
+                IsFeatured = true,
+                Category = "Desarrollo Multiplataforma y Web",
+            },
+            new Project{
                 Id = 21,
                 Title = "Trabajo 4: Visualización de datos con Matplotlib y Seaborn",
                 TitleEn = "Assignment 4: Data Visualization with Matplotlib and Seaborn",
@@ -49,17 +61,6 @@ namespace MiPortfolioVictorR.Client.Services
                 Tags = ["Python"],
                 IsFeatured = false,
                 Category = "Ingenieria Informatica"
-            },
-            new Project{
-                Id = 17,
-                Title = "Calculadora de Matrices",
-                TitleEn = "Matrix Calculator",
-                Description = "Calculadora de matrices desarrollada con JavaScript y react.js. Permite realizar operaciones como suma, resta, multiplicación y determinante de matrices.",
-                DescriptionEn = "Matrix calculator developed with JavaScript and react.js. Allows performing operations such as addition, subtraction, multiplication and determinant of matrices.",
-                GitHubUrl = "https://github.com/Victorr501/CaluladoraMatrices",
-                Tags = ["JavaScript", "React.js"],
-                IsFeatured = true,
-                Category = "Desarrollo Multiplataforma y Web",
             },
             new Project{
                 Id = 15,
