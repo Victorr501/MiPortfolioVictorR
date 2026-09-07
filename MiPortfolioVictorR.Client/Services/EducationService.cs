@@ -40,12 +40,6 @@ namespace MiPortfolioVictorR.Client.Services
         ];
 
         public List<Course> GetCourses() => [
-            new Course { Name = "Prompting responsable: maximiza la IA en tu negocio",  NameEn = "Responsible Prompting: Maximize AI in Your Business",        Platform = "Santander Open Academy", CertificateCode = "OA-2025-1027001886068" },
-            new Course { Name = "Copilot",                                               NameEn = "Copilot",                                                     Platform = "Santander Open Academy", CertificateCode = "OA-2025-1023001873792" },
-            new Course { Name = "Cursor con Python: desarrollo inteligente con IA",      NameEn = "Cursor with Python: Intelligent Development with AI",          Platform = "Santander Open Academy", CertificateCode = "OA-2025-1023001873028" },
-            new Course { Name = "Python",                                                NameEn = "Python",                                                      Platform = "Santander Open Academy", CertificateCode = "OA-2025-1024001877514" },
-            new Course { Name = "Curso de Iniciación al Desarrollo con IA",              NameEn = "Introduction to AI Development Course",                       Platform = "Big School" },
-
             // Cursos de Microsoft
             new Course { Name = "Expediente completo Microsoft Learn",                                                        NameEn = "Full Microsoft Learn Transcript",                                                  Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/es-es/users/vctorrubnrubio-7324/transcript/deq20c1q5klpg4n"},
             new Course { Name = "Creación de aplicaciones en .NET con C#",                                                    NameEn = "Building .NET Applications with C#",                                               Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/vthujkbm" },
@@ -61,6 +55,19 @@ namespace MiPortfolioVictorR.Client.Services
             new Course { Name = "Introducción a la infraestructura en la nube: Conceptos de la nube",                         NameEn = "Introduction to Cloud Infrastructure: Cloud Concepts",                             Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/7BHGYNDZ?sharingId=7BA3BE6C81F7F8" },
             new Course { Name = "Introducción a la infraestructura en la nube: Arquitectura y servicios de Azure",            NameEn = "Introduction to Cloud Infrastructure: Azure Architecture and Services",              Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/AK3Y6TA7?sharingId=7BA3BE6C81F7F8" },
             new Course { Name = "Introducción a la infraestructura en la nube: Administración y gobernanza de Azure",         NameEn = "Introduction to Cloud Infrastructure: Azure Management and Governance",             Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/AK3Y9BN7?sharingId=7BA3BE6C81F7F8" },
+
+
+            // UNIR - Universidad Internacional de La Rioja
+            new Course { Name = "Curso de Programación en Python", Platform = "UNIR - Universidad Internacional de La Rioja", CertificateCode = "PER 17015"},
+            new Course { Name = "Curso de preparación para la Certificación AWS Cloud Practitioner", Platform = "UNIR - Universidad Internacional de La Rioja", CertificateCode = "PER 17017"},
+            new Course { Name = "Curso de preparación para la Certificación AZ-900: Microsoft Azure Fundamentals", Platform = "UNIR - Universidad Internacional de La Rioja", CertificateCode = "PER 17016"},
+
+            // Otros cursos
+            new Course { Name = "Prompting responsable: maximiza la IA en tu negocio",  NameEn = "Responsible Prompting: Maximize AI in Your Business",        Platform = "Santander Open Academy", CertificateCode = "OA-2025-1027001886068" },
+            new Course { Name = "Copilot",                                               NameEn = "Copilot",                                                     Platform = "Santander Open Academy", CertificateCode = "OA-2025-1023001873792" },
+            new Course { Name = "Cursor con Python: desarrollo inteligente con IA",      NameEn = "Cursor with Python: Intelligent Development with AI",          Platform = "Santander Open Academy", CertificateCode = "OA-2025-1023001873028" },
+            new Course { Name = "Python",                                                NameEn = "Python",                                                      Platform = "Santander Open Academy", CertificateCode = "OA-2025-1024001877514" },
+            new Course { Name = "Curso de Iniciación al Desarrollo con IA",              NameEn = "Introduction to AI Development Course",                       Platform = "Big School" },
 
             // Anthropic
             new Course { Name = "Claude with Google Cloud's Vertex AI",                    Platform = "Anthropic", CertificateCode = "dkuiobpqxrhd", Url= "https://verify.skilljar.com/c/dkuiobpqxrhd" },
@@ -79,7 +86,12 @@ namespace MiPortfolioVictorR.Client.Services
             new Course { Name = "Claude Code in Action",                                   Platform = "Anthropic", CertificateCode = "9z9oqgo6npae", Url= "https://verify.skilljar.com/c/ghw276ehbf7q" },
             new Course { Name = "Certificate of completion: Introduction to Claude Cowork", Platform = "Anthropic", CertificateCode = "gypqcghet2ao", Url= "https://verify.skilljar.com/c/gypqcghet2ao" },
             new Course { Name = "Certificate of completion: Claude code 101",              Platform = "Anthropic", CertificateCode = "uvqdto95pcud", Url= "https://verify.skilljar.com/c/uvqdto95pcud" },
-            new Course { Name = "Certificate of completion: Claude 101",                   Platform = "Anthropic", CertificateCode = "e5y2kpn3teyi", Url= "https://verify.skilljar.com/c/uvqdto95pcud" }
+            new Course { Name = "Certificate of completion: Claude 101",                   Platform = "Anthropic", CertificateCode = "e5y2kpn3teyi", Url= "https://verify.skilljar.com/c/uvqdto95pcud" },
+
+            // Midudev
+            new Course { Name = "Aprende SQL - Curso completo", Platform = "midudev", CertificateCode = "6eba7a1f-1374-4892-b84b-3dc3fc235042", Url = "https://certificados.midudev.com/6eba7a1f-1374-4892-b84b-3dc3fc235042.pdf"},
+
+
         ];
     }
 }
