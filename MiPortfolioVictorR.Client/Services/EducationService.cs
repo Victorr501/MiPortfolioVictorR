@@ -1,4 +1,5 @@
 using MiPortfolioVictorR.Shared.Models;
+using MiPortfolioVictorR.Shared.Constants;
 
 namespace MiPortfolioVictorR.Client.Services
 {
@@ -41,6 +42,7 @@ namespace MiPortfolioVictorR.Client.Services
 
         public List<Course> GetCourses() => [
             // Cursos de Microsoft
+            new Course { Name = "Certificación Microsoft Certified: Azure Fundamentals", NameEn = "Microsoft Certified: Azure Fundamentals Certification", CertificateCode = "w9SGGG-H9dR" , Platform = "Microsoft Learn", Url = "archivos/Azure_Fundamentals.pdf" },
             new Course { Name = "Expediente completo Microsoft Learn",                                                        NameEn = "Full Microsoft Learn Transcript",                                                  Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/es-es/users/vctorrubnrubio-7324/transcript/deq20c1q5klpg4n"},
             new Course { Name = "Creación de aplicaciones en .NET con C#",                                                    NameEn = "Building .NET Applications with C#",                                               Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/vthujkbm" },
             new Course { Name = "Escribir el primer código con C# (parte 1)",                                                 NameEn = "Write Your First Code with C# (Part 1)",                                          Platform = "Microsoft Learn", Url = "https://learn.microsoft.com/api/achievements/share/es-es/VctorRubnRubio-7324/DUA48YPJ?sharingId=7BA3BE6C81F7F8" },

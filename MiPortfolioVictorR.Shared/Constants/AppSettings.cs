@@ -19,6 +19,9 @@ namespace MiPortfolioVictorR.Shared.Constants
         public const string GitHubApiBase = "https://api.github.com";
         public const string FormspreeEndpoint = "";  // ← añadir cuando tengas cuenta Formspree
 
+        // Certificados
+        public const string CertificadoAzure = "archivos/Azure Fundamentals.pdf";
+
         // CVs
         public const string CvEs = "archivos/CVVictor_Rubin.pdf";
         public const string CvEn = "archivos/CVVictor_Rubin_English.pdf";
