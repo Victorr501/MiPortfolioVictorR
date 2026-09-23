@@ -58,6 +58,7 @@ namespace MiPortfolioVictorR.Client.Services
                 Description = "Desarrollo de una calculadora de promedios escolares en Python utilizando variables, operadores, estructuras de control y funciones básicas.",
                 DescriptionEn = "Development of a school grade average calculator in Python using variables, operators, control structures, and basic functions.",
                 GitHubUrl = "https://github.com/Victorr501/Trabajo-1-Sintaxis-Python",
+                YouTubeUrl = "https://www.youtube.com/watch?v=dJlCOp6Pa2o&t=1s",
                 Tags = ["Python"],
                 IsFeatured = false,
                 Category = "Ingenieria Informatica"
