@@ -122,7 +122,29 @@
                 </div>
                 <span class="big-project-banner__number">02</span>
             </div>
-
+            @* (Añadir justo debajo del cierre de la tarjeta 02 ChallengeMe) *@
+            <div class="big-project-banner">
+                <div class="big-project-banner__content">
+                    <div class="big-project-banner__meta">
+                        <span class="badge-wood">@LangService.Get("Proyecto Fin de Carrera", "Final Degree Project")</span>
+                        <span class="badge-wood">@LangService.Get("Ing. Informática · 2026", "Comp. Engineering · 2026")</span>
+                        <span class="badge-wood">@LangService.Get("En planificación", "In Planning")</span>
+                    </div>
+                    <h3 class="big-project-banner__title">LocalAI</h3>
+                    <p class="big-project-banner__desc">@LangService.Get("Asistente IA ejecutado 100% en local aprovechando la VRAM de la gráfica y CUDA. Integrado en terminal y conectado a MongoDB para memoria persistente sin uso de APIs.", "100% locally executed AI assistant utilizing GPU VRAM and CUDA. Integrated in terminal and connected to MongoDB for persistent memory without using APIs.")</p>
+                    <div class="big-project-banner__tags">
+                        <span class="badge-wood">Python</span>
+                        <span class="badge-wood">PyTorch</span>
+                        <span class="badge-wood">CUDA</span>
+                        <span class="badge-wood">MongoDB</span>
+                    </div>
+                </div>
+                <div class="big-project-banner__action">
+                    @* Asegúrate de tener AppRoutes.LocalAI definido en tus constantes, o cámbialo a "/localai" *@
+                    <a class="btn-wood-primary" href="@AppRoutes.LocalAI">@LangService.Get("Ver proyecto →", "View project →")</a>
+                </div>
+                <span class="big-project-banner__number">03</span>
+            </div>
         </div>
     </section>
 

@@ -1204,6 +1204,10 @@ a {
         border-bottom: none;
     }
 
+.pfc-update__body:only-child {
+    grid-column: 1 / -1;
+}
+
 .pfc-update__date {
     display: flex;
     flex-direction: column;

@@ -14,5 +14,6 @@ namespace MiPortfolioVictorR.Shared.Constants
         public const string Trackify = "/trackify";
         public const string Education = "/estudios";
         public const string ChallengeMe = "/challengeme";
+        public const string LocalAI = "/localai";
     }
 }

@@ -1,0 +1,236 @@
+﻿@*Aqui falta por modificar para que sepa lo que tengo que hacer y los resusltados que va a dar y no metir*@
+
+@page "/localai"
+@inject LocalAIService LocalAIService
+@inject LanguageService LangService
+@implements IDisposable
+
+<PageTitle>LocalAI — PFC · Víctor Rubín Rubio</PageTitle>
+
+<div class="page-container">
+
+    @* ── HERO DEL PFC ── *@
+    <section class="pfc-hero">
+        <div class="pfc-hero__meta">
+            <span class="badge-wood">@LangService.Get("Proyecto Fin de Carrera", "Final Degree Project")</span>
+            <span class="badge-wood">@LangService.Get("Ingeniería Informática", "Computer Engineering") · 2026</span>
+            <span class="badge-wood">@LangService.Get("En planificación", "In Planning")</span>
+        </div>
+        <h1 class="pfc-hero__title">LocalAI</h1>
+        <p class="pfc-hero__desc">
+            @LangService.Get(
+                "Asistente de inteligencia artificial ejecutado 100% en local mediante aceleración GPU. Interfaz de terminal sin dependencias de APIs externas, garantizando privacidad total y coste cero por consulta.",
+                "100% locally executed artificial intelligence assistant using GPU acceleration. Terminal interface with no external API dependencies, ensuring total privacy and zero cost per query."
+            )
+        </p>
+        <div class="pfc-hero__links">
+            <a class="btn-wood-outline" href="https://github.com/Victorr501/LocalAI" target="_blank" rel="noopener noreferrer">
+                GitHub - @LangService.Get("Repositorio", "Repository")
+            </a>
+        </div>
+    </section>
+
+    @* ── FUNCIONALIDADES ── *@
+    <section class="section">
+        <div class="section__label">@LangService.Get("Qué hace", "What it does")</div>
+        <h2 class="section__title">@LangService.Get("Funcionalidades", "Features")</h2>
+        <div class="pfc-features">
+            <div class="pfc-feature">
+                <div class="pfc-feature__icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="4 17 10 11 4 5"></polyline>
+                        <line x1="12" y1="19" x2="20" y2="19"></line>
+                    </svg>
+                </div>
+                <h3 class="pfc-feature__title">@LangService.Get("Interfaz de Terminal", "Terminal Interface")</h3>
+                <p class="pfc-feature__desc">@LangService.Get("Interacción directa, rápida y sin distracciones a través de la consola nativa de Windows.", "Direct, fast, and distraction-free interaction through the native Windows console.")</p>
+            </div>
+            <div class="pfc-feature">
+                <div class="pfc-feature__icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                </div>
+                <h3 class="pfc-feature__title">@LangService.Get("Aceleración por Hardware", "Hardware Acceleration")</h3>
+                <p class="pfc-feature__desc">@LangService.Get("Uso intensivo de CUDA y VRAM de NVIDIA para ejecutar LLMs cuantizados con baja latencia.", "Intensive use of CUDA and NVIDIA VRAM to run quantized LLMs with low latency.")</p>
+            </div>
+            <div class="pfc-feature">
+                <div class="pfc-feature__icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                </div>
+                <h3 class="pfc-feature__title">@LangService.Get("Privacidad Total", "Total Privacy")</h3>
+                <p class="pfc-feature__desc">@LangService.Get("Al no depender de APIs externas, los datos y conversaciones nunca abandonan el ordenador.", "By not relying on external APIs, data and conversations never leave the computer.")</p>
+            </div>
+            <div class="pfc-feature">
+                <div class="pfc-feature__icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                    </svg>
+                </div>
+                <h3 class="pfc-feature__title">@LangService.Get("Memoria Persistente", "Persistent Memory")</h3>
+                <p class="pfc-feature__desc">@LangService.Get("Uso de MongoDB para almacenar el histórico de conversaciones y construir contexto a largo plazo.", "Use of MongoDB to store conversation history and build long-term context.")</p>
+            </div>
+        </div>
+    </section>
+
+    @* ── TECNOLOGÍAS ── *@
+    <section class="section">
+        <div class="section__label">Stack</div>
+        <h2 class="section__title">@LangService.Get("Tecnologías usadas", "Technologies used")</h2>
+        <div class="pfc-stack">
+            <div class="pfc-stack__item">
+                <span class="pfc-stack__layer">@LangService.Get("Lenguaje Principal", "Main Language")</span>
+                <span class="pfc-stack__tech">Python</span>
+            </div>
+            <div class="pfc-stack__item">
+                <span class="pfc-stack__layer">@LangService.Get("Machine Learning", "Machine Learning")</span>
+                <span class="pfc-stack__tech">PyTorch · CUDA Toolkit</span>
+            </div>
+            <div class="pfc-stack__item">
+                <span class="pfc-stack__layer">@LangService.Get("Inferencia Local", "Local Inference")</span>
+                <span class="pfc-stack__tech">Hugging Face Transformers · llama-cpp</span>
+            </div>
+            <div class="pfc-stack__item">
+                <span class="pfc-stack__layer">@LangService.Get("Base de datos (Memoria)", "Database (Memory)")</span>
+                <span class="pfc-stack__tech">MongoDB</span>
+            </div>
+        </div>
+    </section>
+
+    @* ── MOTIVACIÓN ── *@
+    <section class="section">
+        <div class="section__label">@LangService.Get("Por qué lo hago", "Why I'm building it")</div>
+        <h2 class="section__title">@LangService.Get("Motivación", "Motivation")</h2>
+        <blockquote class="pfc-quote">
+            @LangService.Get(
+                "Este proyecto nace como culminación de la carrera, buscando aplicar la inteligencia artificial generativa resolviendo problemas reales como la latencia de red, la privacidad de la información y el coste de las APIs de terceros. Es un desafío técnico de optimización de hardware (VRAM) y software (cuantización).",
+                "This project is born as the culmination of my degree, seeking to apply generative artificial intelligence while solving real problems like network latency, data privacy, and third-party API costs. It is a technical challenge in hardware (VRAM) and software (quantization) optimization."
+            )
+        </blockquote>
+    </section>
+
+    @* ── DIARIO DE DESARROLLO ── *@
+    <section class="section">
+        <div class="section__label">@LangService.Get("Diario de desarrollo", "Dev diary")</div>
+        <h2 class="section__title">@LangService.Get("Actualizaciones", "Updates")</h2>
+        <div class="pfc-progress">
+            <div class="pfc-progress__bar">
+                <div class="pfc-progress__fill" style="width: 1%"></div>
+            </div>
+            <span class="pfc-progress__label">@LangService.Get("Fase de planificación 1%", "Planning phase 1%")</span>
+        </div>
+
+        @{
+            var updates = LocalAIService.GetUpdates();
+            var pageSize = 5;
+            var totalPages = (int)Math.Ceiling(updates.Count / (double)pageSize);
+            var paged = updates.Skip((_updatesPage - 1) * pageSize).Take(pageSize).ToList();
+        }
+
+        @if (!updates.Any())
+        {
+            <div class="pfc-updates">
+                <div class="pfc-update">
+                    <div class="pfc-update__body">
+                        <h3 class="pfc-update__title">@LangService.Get("Aún sin actualizaciones", "No updates yet")</h3>
+                        <p class="pfc-update__desc">@LangService.Get("El desarrollo del asistente local de IA acaba de iniciar su fase de planificación. Aquí iré documentando el progreso de la arquitectura, configuración de CUDA y scripts de Python.", "The development of the local AI assistant has just started its planning phase. Here I will document the progress of the architecture, CUDA configuration, and Python scripts.")</p>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            @* Código de renderizado de lista de updates y paginación (igual que ChallengeMe) *@
+            <div class="pfc-updates">
+                @foreach (var update in paged)
+                {
+                    <div class="pfc-update">
+                        <div class="pfc-update__date">
+                            <span class="pfc-update__day">@update.Date.Day.ToString("00")</span>
+                            <span class="pfc-update__month">@update.Date.ToString("MMM", LangService.IsEnglish ? new System.Globalization.CultureInfo("en-GB") : new System.Globalization.CultureInfo("es-ES"))</span>
+                            <span class="pfc-update__year">@update.Date.Year</span>
+                        </div>
+                        <div class="pfc-update__body">
+                            <h3 class="pfc-update__title">@LangService.Get(update.Title, update.TitleEn)</h3>
+                            <p class="pfc-update__desc">@LangService.Get(update.Description, update.DescriptionEn)</p>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            @if (totalPages > 1)
+            {
+                <div class="pagination">
+                    @for (int p = 1; p <= totalPages; p++)
+                    {
+                        var pageNum = p;
+                        <span class="pagination__btn @(pageNum == _updatesPage ? "pagination__btn--active" : "")"
+                              @onclick="() => { _updatesPage = pageNum; }">
+                            @pageNum
+                        </span>
+                    }
+                </div>
+            }
+        }
+    </section>
+
+</div>
+
+<style>
+    .pagination {
+        display: flex;
+        gap: .25rem;
+        margin-top: 1rem;
+        justify-content: center;
+    }
+
+    .pagination__btn {
+        width: 36px;
+        height: 36px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: .85rem;
+        font-weight: 500;
+        color: #78625A;
+        background: transparent;
+        border: 0.5px solid transparent;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all .15s;
+        user-select: none;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+        .pagination__btn:hover {
+            border-color: #E7DDD0;
+            color: #92400E;
+        }
+
+    .pagination__btn--active {
+        background: #92400E;
+        color: #fff !important;
+        border-color: #92400E !important;
+        pointer-events: none;
+    }
+</style>
+
+@code {
+    private int _updatesPage = 1;
+
+    protected override void OnInitialized()
+    {
+        LangService.OnLanguageChanged += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        LangService.OnLanguageChanged -= StateHasChanged;
+    }
+}
