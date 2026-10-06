@@ -1,6 +1,4 @@
-﻿@*Aqui falta por modificar para que sepa lo que tengo que hacer y los resusltados que va a dar y no metir*@
-
-@page "/localai"
+﻿@page "/localai"
 @inject LocalAIService LocalAIService
 @inject LanguageService LangService
 @implements IDisposable
@@ -14,7 +12,7 @@
         <div class="pfc-hero__meta">
             <span class="badge-wood">@LangService.Get("Proyecto Fin de Carrera", "Final Degree Project")</span>
             <span class="badge-wood">@LangService.Get("Ingeniería Informática", "Computer Engineering") · 2026</span>
-            <span class="badge-wood">@LangService.Get("En planificación", "In Planning")</span>
+            <span class="badge-wood">@LangService.Get("En desarrollo", "In Development")</span>
         </div>
         <h1 class="pfc-hero__title">LocalAI</h1>
         <p class="pfc-hero__desc">
@@ -94,11 +92,11 @@
             </div>
             <div class="pfc-stack__item">
                 <span class="pfc-stack__layer">@LangService.Get("Inferencia Local", "Local Inference")</span>
-                <span class="pfc-stack__tech">Hugging Face Transformers · llama-cpp</span>
+                <span class="pfc-stack__tech">Hugging Face Transformers · llama-cpp-python</span>
             </div>
             <div class="pfc-stack__item">
                 <span class="pfc-stack__layer">@LangService.Get("Base de datos (Memoria)", "Database (Memory)")</span>
-                <span class="pfc-stack__tech">MongoDB</span>
+                <span class="pfc-stack__tech">MongoDB (Docker)</span>
             </div>
         </div>
     </section>
@@ -121,9 +119,9 @@
         <h2 class="section__title">@LangService.Get("Actualizaciones", "Updates")</h2>
         <div class="pfc-progress">
             <div class="pfc-progress__bar">
-                <div class="pfc-progress__fill" style="width: 1%"></div>
+                <div class="pfc-progress__fill" style="width: 25%"></div>
             </div>
-            <span class="pfc-progress__label">@LangService.Get("Fase de planificación 1%", "Planning phase 1%")</span>
+            <span class="pfc-progress__label">@LangService.Get("Arquitectura base y motor CLI listos (25%)", "Core architecture and CLI engine ready (25%)")</span>
         </div>
 
         @{
@@ -146,7 +144,6 @@
         }
         else
         {
-            @* Código de renderizado de lista de updates y paginación (igual que ChallengeMe) *@
             <div class="pfc-updates">
                 @foreach (var update in paged)
                 {

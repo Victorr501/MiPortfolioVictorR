@@ -69,7 +69,8 @@ namespace MiPortfolioVictorR.Client.Services
             new Course { Name = "Copilot",                                               NameEn = "Copilot",                                                     Platform = "Santander Open Academy", CertificateCode = "OA-2025-1023001873792" },
             new Course { Name = "Cursor con Python: desarrollo inteligente con IA",      NameEn = "Cursor with Python: Intelligent Development with AI",          Platform = "Santander Open Academy", CertificateCode = "OA-2025-1023001873028" },
             new Course { Name = "Python",                                                NameEn = "Python",                                                      Platform = "Santander Open Academy", CertificateCode = "OA-2025-1024001877514" },
-            new Course { Name = "Curso de Iniciación al Desarrollo con IA",              NameEn = "Introduction to AI Development Course",                       Platform = "Big School" },
+            new Course { Name = "Curso de Iniciación al Desarrollo con IA. Version 1",              NameEn = "Introduction to AI Development Course. Version 1",                       Platform = "Big School" },
+            new Course { Name = "Curso de Iniciación al Desarrollo con IA. Version 4",              NameEn = "Introduction to AI Development Course",                       Platform = "Big School",  Url= "archivos/BigData_Desarrollo_Con_IA_Version4.pdf"},
 
             // Anthropic
             new Course { Name = "Claude with Google Cloud's Vertex AI",                    Platform = "Anthropic", CertificateCode = "dkuiobpqxrhd", Url= "https://verify.skilljar.com/c/dkuiobpqxrhd" },
