@@ -6,6 +6,17 @@ namespace MiPortfolioVictorR.Client.Services
     {
         public List<Project> GetProjects() => [
             new Project{
+                Id = 22,
+                Title = "RepositorioAgentes",
+                TitleEn = "Agent Repository",
+                Description = "Repositorio con la estructura de carpetas y archivos para trabajar con agentes de IA y OpenCode. Esta estructura esta diseñada para trabajar en el formato de Spec-Driven Development y sistemas multiagente",
+                DescriptionEn = "Repository with the folder and file structure to work with AI agents and OpenCode. This structure is designed to work in the Spec-Driven Development format and multi-agent systems.",
+                GitHubUrl = "https://github.com/Victorr501/RepositorioAgentes",
+                Tags = ["IA", "Productividad", "OpenCode"],
+                IsFeatured = false,
+                Category = "Herramientas y Utilidades"
+            },
+            new Project{
                 Id = 17,
                 Title = "Calculadora de Matrices",
                 TitleEn = "Matrix Calculator",
