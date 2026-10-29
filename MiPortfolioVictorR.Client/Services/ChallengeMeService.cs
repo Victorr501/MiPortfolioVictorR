@@ -49,9 +49,9 @@ namespace MiPortfolioVictorR.Client.Services
             new PfcUpdate
             {
                 Date          = new DateOnly(2026, 04, 13),
-                Title         = "Solucion de la discrepancia del entorno y creacion de la aplicacion para android",
+                Title         = "Solución de la discrepancia del entorno y creación de la aplicación para Android",
                 TitleEn       = "Resolved environment discrepancy and created the Android app",
-                Description   = "Ya he terminado de solucionar el problema en la autenticacion, al final lo que he tenido que hacer es usar localstorage en vez de la cookes devido a que una vez arrancada la pestaña yo no podia hacer una peticion al servidor ya que el http estaba desabilitado. A ademas he creado ya el repostirio para la aplicacion en Android usando Kotlin",
+                Description   = "He solucionado el problema de autenticación usando localStorage en vez de cookies, ya que al abrir la pestaña no podía hacer una petición al servidor porque HTTP estaba deshabilitado. Además, he creado el repositorio para la aplicación Android usando Kotlin.",
                 DescriptionEn = "I finished resolving the authentication issue. I had to use localStorage instead of cookies because once the tab was launched I could not make requests to the server as HTTP was disabled. I have also created the repository for the Android application using Kotlin."
             },
             new PfcUpdate
@@ -93,10 +93,9 @@ namespace MiPortfolioVictorR.Client.Services
             new PfcUpdate
             {
                 Date          = new DateOnly(2026, 03, 23),
-                Title         = "Incio de proyecto",
+                Title         = "Inicio del proyecto",
                 TitleEn       = "Project kickoff",
-                Description   = "Hoy he empezado este nuevo proyecto, lo primero que he hecho ha sido encontrar la idea del proyecto, ver si es economicamente rentable para poder despleg" +
-                                "arlo y ver la arquitectura de la aplicacion",
+                Description   = "Hoy he empezado este nuevo proyecto. Lo primero que he hecho ha sido definir la idea, estudiar si es económicamente rentable desplegarlo y diseñar la arquitectura de la aplicación.",
                 DescriptionEn = "I started this new project today. The first steps were to define the project idea, assess its economic viability for deployment and plan the application architecture."
             }
         ];

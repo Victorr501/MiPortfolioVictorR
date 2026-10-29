@@ -9,7 +9,7 @@ namespace MiPortfolioVictorR.Client.Services
                 Id = 22,
                 Title = "RepositorioAgentes",
                 TitleEn = "Agent Repository",
-                Description = "Repositorio con la estructura de carpetas y archivos para trabajar con agentes de IA y OpenCode. Esta estructura esta diseñada para trabajar en el formato de Spec-Driven Development y sistemas multiagente",
+                Description = "Repositorio con la estructura de carpetas y archivos para trabajar con agentes de IA y OpenCode. Esta estructura está diseñada para trabajar en el formato de Spec-Driven Development y sistemas multiagente",
                 DescriptionEn = "Repository with the folder and file structure to work with AI agents and OpenCode. This structure is designed to work in the Spec-Driven Development format and multi-agent systems.",
                 GitHubUrl = "https://github.com/Victorr501/RepositorioAgentes",
                 Tags = ["IA", "Productividad", "OpenCode"],
@@ -35,21 +35,21 @@ namespace MiPortfolioVictorR.Client.Services
                 Description = "Creación de visualizaciones con Matplotlib y Seaborn para analizar un conjunto de datos de ventas minoristas.",
                 DescriptionEn = "Creating visualizations with Matplotlib and Seaborn to analyze a retail sales dataset.",
                 GitHubUrl = "https://github.com/Victorr501/Trabajo-4-Visualizaci-n-de-datos-con-Matplotlib-y-Seaborn",
-                Tags = ["Python", "Pandas", "Matplotlib", "Seaborn", "Jypiter"],
+                Tags = ["Python", "Pandas", "Matplotlib", "Seaborn", "Jupyter"],
                 IsFeatured = false,
-                Category = "Ingenieria Informatica"
+                Category = "Ingeniería Informática"
 
             },
             new Project{
                 Id = 20,
-                Title = "Trabajo 3: Anlisis de datos com Numpy y Pandas",
+                Title = "Trabajo 3: Análisis de datos con NumPy y Pandas",
                 TitleEn = "Assignment 3: Data Analysis with NumPy and Pandas",
-                Description = "Este reto consiste en analizar los datos de ventas, los inventarios y la satisfacción del cliente para una cadena de tiendas minoristas; utilizando Pandas, para la manipulación de datos, y Numpy, para realizar cálculos estadísticos y simulaciones. El objetivo es ayudar a optimizar el rendimiento de las tiendas a través del análisis de estos datos",
+                Description = "Este reto consiste en analizar los datos de ventas, los inventarios y la satisfacción del cliente para una cadena de tiendas minoristas; utilizando Pandas, para la manipulación de datos, y NumPy, para realizar cálculos estadísticos y simulaciones. El objetivo es ayudar a optimizar el rendimiento de las tiendas a través del análisis de estos datos",
                 DescriptionEn = "This project involves analyzing retail sales, inventory levels, and customer satisfaction data using Pandas for data manipulation and NumPy for statistical calculations and simulations. The goal is to optimize store performance through data-driven analysis.",
                 GitHubUrl = "https://github.com/Victorr501/Trabajo-3-An-lisis-de-datos-con-Numpy-y-Pandas",
-                Tags = ["Python", "Pandas", "Numpy"],
+                Tags = ["Python", "Pandas", "NumPy"],
                 IsFeatured = false,
-                Category = "Ingenieria Informatica"
+                Category = "Ingeniería Informática"
             },
             new Project{
                 Id = 19,
@@ -60,7 +60,7 @@ namespace MiPortfolioVictorR.Client.Services
                 GitHubUrl = "https://github.com/Victorr501/Trabajo-2-Python-Programaci-n-Orientada-a-Objetos",
                 Tags = ["Python"],
                 IsFeatured = false,
-                Category = "Ingenieria Informatica"
+                Category = "Ingeniería Informática"
             },
             new Project{
                 Id = 18,
@@ -72,16 +72,16 @@ namespace MiPortfolioVictorR.Client.Services
                 YouTubeUrl = "https://www.youtube.com/watch?v=dJlCOp6Pa2o&t=1s",
                 Tags = ["Python"],
                 IsFeatured = false,
-                Category = "Ingenieria Informatica"
+                Category = "Ingeniería Informática"
             },
             new Project{
                 Id = 15,
-                Title = "Aplicacion Daltonicos",
+                Title = "Aplicación para daltónicos",
                 TitleEn = "Color Blindness App",
-                Description = "AppColoresDaltonicos es una aplicacion movil cliente-servidor para accesibilidad visual. El frontend esta desarrollado en .NET MAUI (C#, XAML) bajo el patron MVVM y AppShell. El backend es una API REST en ASP.NET Core con arquitectura multicapa y patron repositorio generico, utilizando Entity Framework Core (Code-First) sobre SQL Server. El sistema integra inyeccion de dependencias, AutoMapper para DTOs, autenticacion con JWT y encriptacion de contrasenas con BCrypt.",
+                Description = "AppColoresDaltonicos es una aplicación móvil cliente-servidor para accesibilidad visual. El frontend está desarrollado en .NET MAUI (C#, XAML) bajo el patrón MVVM y AppShell. El backend es una API REST en ASP.NET Core con arquitectura multicapa y patrón repositorio genérico, utilizando Entity Framework Core (Code-First) sobre SQL Server. El sistema integra inyección de dependencias, AutoMapper para DTOs, autenticación con JWT y cifrado de contraseñas con BCrypt.",
                 DescriptionEn = "AppColoresDaltonicos is a client-server mobile app for visual accessibility. The frontend is built with .NET MAUI (C#, XAML) using the MVVM pattern and AppShell. The backend is a REST API in ASP.NET Core with a multi-layer architecture and generic repository pattern, using Entity Framework Core (Code-First) on SQL Server. The system integrates dependency injection, AutoMapper for DTOs, JWT authentication and BCrypt password encryption.",
                 GitHubUrl = "https://github.com/Victorr501/AppColoresDaltonicos",
-                Tags = [".NET", "C#", "ASP.NET", ".NET MAUI", "Andorid/IOS"],
+                Tags = [".NET", "C#", "ASP.NET", ".NET MAUI", "Android/iOS"],
                 IsFeatured = true,
                 Category = "Desarrollo Multiplataforma y Web"
             },

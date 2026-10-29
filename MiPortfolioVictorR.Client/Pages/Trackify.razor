@@ -13,12 +13,13 @@
         <div class="pfc-hero__meta">
             <span class="badge-wood">@LangService.Get("Proyecto Fin de Ciclo", "Final Degree Project")</span>
             <span class="badge-wood">DAM · 2025</span>
+            <span class="badge-wood">@LangService.Get("Finalizado · Sin desarrollo activo", "Finished · No longer in active development")</span>
         </div>
         <h1 class="pfc-hero__title">Trackify</h1>
         <p class="pfc-hero__desc">
             @LangService.Get(
-                "Trackify organiza hábitos diarios y semanales, envía recordatorios automáticos y muestra el progreso con estadísticas claras para que mantener la constancia sea más sencillo.",
-                "Trackify organizes daily and weekly habits, sends automatic reminders and displays progress with clear statistics to make consistency easier to maintain. "
+                "Trackify organiza hábitos diarios y semanales y muestra el progreso para facilitar la constancia. Los recordatorios automáticos no llegaron a implementarse.",
+                "Trackify organizes daily and weekly habits and displays progress to help users stay consistent. Automatic reminders were not implemented."
             )
         </p>
         <div class="pfc-hero__links">
@@ -47,7 +48,7 @@
                     </svg>
                 </div>
                 <h3 class="pfc-feature__title">@LangService.Get("Registro flexible", "Flexible tracking")</h3>
-                <p class="pfc-feature__desc">@LangService.Get("El usuario define hábitos diarios o semanales con recordatorios personalizados según lo que quiera lograr.", "Users define daily or weekly habits with personalized reminders based on their goals.")</p>
+                <p class="pfc-feature__desc">@LangService.Get("El usuario define hábitos diarios o semanales según lo que quiera lograr.", "Users define daily or weekly habits based on their goals.")</p>
             </div>
             <div class="pfc-feature">
                 <div class="pfc-feature__icon">
@@ -120,10 +121,7 @@
         <div class="section__label">@LangService.Get("Diario de desarrollo", "Dev diary")</div>
         <h2 class="section__title">@LangService.Get("Actualizaciones", "Updates")</h2>
         <div class="pfc-progress">
-            <div class="pfc-progress__bar">
-                <div class="pfc-progress__fill" style="width: 100%"></div>
-            </div>
-            <span class="pfc-progress__label">@LangService.Get("Proyecto completado · 100%", "Project completed · 100%")</span>
+            <span class="pfc-progress__label">@LangService.Get("Proyecto finalizado · Sin desarrollo activo", "Project finished · No longer in active development")</span>
         </div>
 
         @{
