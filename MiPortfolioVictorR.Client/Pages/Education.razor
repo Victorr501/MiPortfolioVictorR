@@ -1,6 +1,7 @@
 @* ── src/MiPortfolioVictorR.Client/Pages/Education.razor ── *@
 @page "/estudios"
 @inject EducationService EducationService
+@inject UniversityService UniversityService
 @inject LanguageService LangService
 @implements IDisposable
 
@@ -13,6 +14,80 @@
         <div class="section__label">@LangService.Get("Formación", "Education")</div>
         <h1 class="edu-page__title">@LangService.Get("Estudios y cursos", "Education & Courses")</h1>
         <p class="edu-page__sub">@LangService.Get("Mi recorrido académico y los cursos que he completado para seguir creciendo.", "My academic background and the courses I have completed to keep growing.")</p>
+    </section>
+
+    @* ── UNIVERSIDAD ── *@
+    <section class="section">
+        <div class="section__label">@LangService.Get("Formación universitaria", "University education")</div>
+        <h2 class="section__title">@LangService.Get("Universidad (UNIR)", "University (UNIR)")</h2>
+        <div class="university-intro">
+            <h3>@LangService.Get("Grado en Ingeniería Informática", "Bachelor's Degree in Computer Engineering")</h3>
+            <p>@LangService.Get(
+                "Estudiante del Grado en Ingeniería Informática en UNIR (240 ECTS), con especialización en Ingeniería del Software. Formación en arquitectura de sistemas, desarrollo en red, bases de datos, ciberseguridad y dirección de proyectos IT mediante aprendizaje online y práctica virtual.",
+                "Computer Engineering student at UNIR (240 ECTS), specializing in Software Engineering. Studies include systems architecture, network development, databases, cybersecurity and IT project management through online learning and virtual practice.")</p>
+            <p>@LangService.Get("Asignaturas convalidadas mediante el Grado Superior en Desarrollo de Aplicaciones Multiplataforma.", "Credits recognized from the Higher National Diploma in Multiplatform Application Development.")</p>
+        </div>
+
+        @{ var subjects = UniversityService.GetSubjects(); }
+        @if (subjects.Count == 0)
+        {
+            <p class="university-empty">@LangService.Get("Próximamente añadiré las asignaturas de la carrera.", "I will add my degree subjects soon.")</p>
+        }
+        else
+        {
+            @foreach (var year in subjects.OrderBy(s => s.Year ?? int.MaxValue).GroupBy(s => s.Year))
+            {
+                var yearKey = year.Key ?? 0;
+                var currentSubjectPage = GetSubjectPage(yearKey);
+                var subjectPages = (int)Math.Ceiling(year.Count() / 3.0);
+                <details class="university-year" open="@(year.Key == 1)">
+                    <summary class="university-year__title">
+                        <span>@GetYearLabel(year.Key) <span class="university-year__count">(@year.Count())</span></span>
+                        <svg class="university-year__arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg>
+                    </summary>
+                    <div class="university-year__content">
+                    <div class="university-list">
+                        @foreach (var subject in year.Skip((currentSubjectPage - 1) * 3).Take(3))
+                        {
+                            <article class="university-subject">
+                                <div class="university-subject__header">
+                                    <h4>@LangService.Get(subject.Name, subject.NameEn)</h4>
+                                    <span class="university-subject__status @(subject.IsRecognized ? "university-subject__status--recognized" : subject.InProgress ? "university-subject__status--progress" : "university-subject__status--studied")">
+                                        @(subject.IsRecognized ? LangService.Get("Convalidada", "Credit recognized") : subject.InProgress ? LangService.Get("En curso", "In progress") : LangService.Get("Cursada", "Studied"))
+                                    </span>
+                                </div>
+                                @if (subject.Semester.HasValue)
+                                {
+                                    <div class="university-subject__semester">@GetSemesterLabel(subject.Semester.Value)</div>
+                                }
+                                @if (!string.IsNullOrWhiteSpace(subject.Description))
+                                {
+                                    <p>@LangService.Get(subject.Description, subject.DescriptionEn)</p>
+                                }
+                                @if (!string.IsNullOrWhiteSpace(subject.Grade))
+                                {
+                                    <div class="university-subject__grade">@LangService.Get("Nota", "Grade"): @(subject.Grade == "Apto" ? LangService.Get("Apto", "Pass") : subject.Grade)</div>
+                                }
+                            </article>
+                        }
+                    </div>
+                    @if (subjectPages > 1)
+                    {
+                        <nav class="university-pagination" aria-label="@LangService.Get("Páginas de asignaturas", "Subject pages")">
+                            @for (var page = 1; page <= subjectPages; page++)
+                            {
+                                var pageNumber = page;
+                                <button type="button" class="university-pagination__button @(pageNumber == currentSubjectPage ? "university-pagination__button--active" : "")"
+                                        aria-label="@LangService.Get($"Página {pageNumber}", $"Page {pageNumber}")"
+                                        aria-current="@(pageNumber == currentSubjectPage ? "page" : null)"
+                                        @onclick="() => SetSubjectPage(yearKey, pageNumber)">@pageNumber</button>
+                            }
+                        </nav>
+                    }
+                    </div>
+                </details>
+            }
+        }
     </section>
 
     @* ── FORMACIÓN ACADÉMICA ── *@
@@ -94,6 +169,28 @@
 
 @code {
     private readonly Dictionary<string, int> _pages = new();
+    private readonly Dictionary<int, int> _subjectPages = new();
+
+    private int GetSubjectPage(int year) => _subjectPages.TryGetValue(year, out var page) ? page : 1;
+
+    private void SetSubjectPage(int year, int page) => _subjectPages[year] = page;
+
+    private string GetYearLabel(int? year) => year switch
+    {
+        null => LangService.Get("Convalidadas", "Recognized credits"),
+        1 => LangService.Get("Primer curso", "First year"),
+        2 => LangService.Get("Segundo curso", "Second year"),
+        3 => LangService.Get("Tercer curso", "Third year"),
+        4 => LangService.Get("Cuarto curso", "Fourth year"),
+        _ => LangService.Get($"Curso {year}", $"Year {year}")
+    };
+
+    private string GetSemesterLabel(int semester) => semester switch
+    {
+        1 => LangService.Get("Primer cuatrimestre", "First semester"),
+        2 => LangService.Get("Segundo cuatrimestre", "Second semester"),
+        _ => LangService.Get($"Cuatrimestre {semester}", $"Semester {semester}")
+    };
 
     private int GetPage(string platform) =>
         _pages.TryGetValue(platform, out var p) ? p : 1;

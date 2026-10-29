@@ -1321,6 +1321,173 @@ a {
     margin: 0;
 }
 
+/* Sección universidad */
+.university-intro {
+    padding: 1.5rem;
+    border: 1px solid #e7ddd0;
+    border-left: 5px solid #b45309;
+    border-radius: 10px;
+    background: #fff5e7;
+}
+
+.university-intro h3, .university-subject h4 {
+    margin: 0;
+    color: #47362e;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.university-intro p, .university-subject p {
+    margin: .6rem 0 0;
+    color: #78625a;
+    line-height: 1.6;
+}
+
+.university-empty {
+    margin-top: 1rem;
+    color: #78625a;
+}
+
+.university-year {
+    margin-top: 1rem;
+    border: 1px solid #e7ddd0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.university-year__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    color: #78350f;
+    background: #f9ead7;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+}
+
+.university-year__title::-webkit-details-marker {
+    display: none;
+}
+
+.university-year__title:hover {
+    background: #f3dcc0;
+}
+
+.university-year__title:focus-visible, .university-pagination__button:focus-visible {
+    outline: 3px solid #b45309;
+    outline-offset: -3px;
+}
+
+.university-year__count {
+    color: #92400e;
+    font-size: .85rem;
+}
+
+.university-year__arrow {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+    transition: transform .15s;
+}
+
+.university-year[open] .university-year__arrow {
+    transform: rotate(180deg);
+}
+
+.university-year__content {
+    padding: 1rem;
+    background: #fffcf8;
+}
+
+.university-list {
+    display: grid;
+    gap: .75rem;
+}
+
+.university-subject {
+    padding: 1.25rem 1.5rem;
+    border: 1px solid #e7ddd0;
+    border-left: 4px solid #d97706;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.university-subject__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: .75rem;
+}
+
+.university-subject__status {
+    flex-shrink: 0;
+    padding: .25rem .65rem;
+    border-radius: 999px;
+    font-size: .78rem;
+    font-weight: 600;
+}
+
+.university-subject__status--studied {
+    color: #27613d;
+    background: #e8f3e9;
+}
+
+.university-subject__status--recognized {
+    color: #86500e;
+    background: #fff0d8;
+}
+
+.university-subject__status--progress {
+    color: #245a80;
+    background: #e5f1fa;
+}
+
+.university-subject__semester {
+    margin-top: .5rem;
+    color: #78625a;
+    font-size: .85rem;
+}
+
+.university-subject__grade {
+    margin-top: .75rem;
+    color: #47362e;
+    font-weight: 600;
+    font-size: .9rem;
+}
+
+.university-pagination {
+    display: flex;
+    justify-content: center;
+    gap: .4rem;
+    margin-top: 1rem;
+}
+
+.university-pagination__button {
+    min-width: 36px;
+    height: 36px;
+    border: 1px solid #d6b895;
+    border-radius: 6px;
+    background: #fff;
+    color: #78350f;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.university-pagination__button:hover, .university-pagination__button--active {
+    background: #92400e;
+    border-color: #92400e;
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    .university-subject__header {
+        flex-wrap: wrap;
+    }
+}
+
 .courses-group {
     margin-bottom: 2rem;
 }
