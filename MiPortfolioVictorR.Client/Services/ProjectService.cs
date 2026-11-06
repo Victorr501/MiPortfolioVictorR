@@ -6,6 +6,26 @@ namespace MiPortfolioVictorR.Client.Services
     {
         public List<Project> GetProjects() => [
             new Project{
+                Id = 23,
+                Title = "ChallengeMe!",
+                Description = "Aplicación web de retos diarios personalizados. Proyecto finalizado sin completar y sin desarrollo activo.",
+                DescriptionEn = "A web app for personalized daily challenges. Ended unfinished and no longer in active development.",
+                GitHubUrl = "https://github.com/Victorr501/ChallengMe",
+                Tags = ["C#", "ASP.NET Core", "Blazor WASM", "Azure"],
+                IsFeatured = false,
+                Category = "Desarrollo Multiplataforma y Web"
+            },
+            new Project{
+                Id = 24,
+                Title = "LocalAI",
+                Description = "Asistente de IA local integrado en terminal, con memoria persistente. Proyecto pausado.",
+                DescriptionEn = "A local AI assistant integrated into the terminal, with persistent memory. Project paused.",
+                GitHubUrl = "https://github.com/Victorr501/LocalAI",
+                Tags = ["Python", "PyTorch", "CUDA", "MongoDB"],
+                IsFeatured = false,
+                Category = "Herramientas y Utilidades"
+            },
+            new Project{
                 Id = 22,
                 Title = "RepositorioAgentes",
                 TitleEn = "Agent Repository",

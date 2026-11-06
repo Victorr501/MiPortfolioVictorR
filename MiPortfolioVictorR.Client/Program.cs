@@ -17,8 +17,6 @@ builder.Services.AddScoped<UniversityService>();
 builder.Services.AddScoped<SkillService>();
 builder.Services.AddScoped<TrackifyService>();
 builder.Services.AddScoped<ContactService>();
-builder.Services.AddScoped<ChallengeMeService>();
 builder.Services.AddScoped<LanguageService>();
-builder.Services.AddScoped<LocalAIService>();
 
 await builder.Build().RunAsync();

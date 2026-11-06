@@ -1,0 +1,21 @@
+@page "/sistema-operativo"
+@inject LanguageService LangService
+@implements IDisposable
+
+<PageTitle>@LangService.Get("Sistema operativo", "Operating system") — @LangService.Get("Proyecto", "Project") · Víctor Rubín Rubio</PageTitle>
+
+<div class="page-container">
+    <section class="pfc-hero">
+        <div class="pfc-hero__meta">
+            <span class="badge-wood">@LangService.Get("Proyecto Personal", "Personal Project")</span>
+        </div>
+        <h1 class="pfc-hero__title">@LangService.Get("Sistema operativo", "Operating system")</h1>
+        <p class="pfc-hero__desc">@LangService.Get("Un proyecto personal sobre el desarrollo de un sistema operativo. Próximamente añadiré más información.", "A personal project about operating system development. More information will be added soon.")</p>
+    </section>
+</div>
+
+@code {
+    protected override void OnInitialized() => LangService.OnLanguageChanged += StateHasChanged;
+
+    public void Dispose() => LangService.OnLanguageChanged -= StateHasChanged;
+}
