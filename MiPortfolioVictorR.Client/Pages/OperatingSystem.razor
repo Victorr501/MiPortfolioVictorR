@@ -2,19 +2,138 @@
 @inject LanguageService LangService
 @implements IDisposable
 
-<PageTitle>@LangService.Get("Sistema operativo", "Operating system") — @LangService.Get("Proyecto", "Project") · Víctor Rubín Rubio</PageTitle>
+<PageTitle>@LangService.Get("Sistema operativo (OS)", "Operating system (OS)") · Víctor Rubín Rubio</PageTitle>
+
+@{
+    var updates = OperatingSystemUpdates.GetUpdates().OrderByDescending(update => update.Date).ToList();
+    var totalPages = (int)Math.Ceiling(updates.Count / 5.0);
+    var pagedUpdates = updates.Skip((_updatesPage - 1) * 5).Take(5);
+}
 
 <div class="page-container">
     <section class="pfc-hero">
         <div class="pfc-hero__meta">
-            <span class="badge-wood">@LangService.Get("Proyecto Personal", "Personal Project")</span>
+            <span class="badge-wood">@LangService.Get("Proyecto personal", "Personal project")</span>
+            <span class="badge-wood">@LangService.Get("Fase inicial", "Early stage")</span>
         </div>
-        <h1 class="pfc-hero__title">@LangService.Get("Sistema operativo", "Operating system")</h1>
-        <p class="pfc-hero__desc">@LangService.Get("Un proyecto personal sobre el desarrollo de un sistema operativo. Próximamente añadiré más información.", "A personal project about operating system development. More information will be added soon.")</p>
+        <h1 class="pfc-hero__title">@LangService.Get("Sistema operativo (OS)", "Operating system (OS)")</h1>
+        <p class="pfc-hero__desc">@LangService.Get("Un proyecto experimental para aprender a construir un sistema operativo desde sus cimientos, con una visión minimalista y centrada en la inteligencia artificial.", "An experimental project to learn how to build an operating system from the ground up, with a minimalist vision centered on artificial intelligence.")</p>
+        <div class="pfc-hero__links">
+            <a class="btn-wood-primary" href="https://github.com/Victorr501/SistemaOperativo-OS-" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn-wood-outline" href="https://github.com/users/Victorr501/projects/3" target="_blank" rel="noopener noreferrer">@LangService.Get("Seguimiento del proyecto", "Project tracking")</a>
+            <a class="btn-wood-outline" href="https://app.notion.com/p/Sistema-Operativo-OS-417fdbe40879801cb7aee000912f7a8b?source=copy_link" target="_blank" rel="noopener noreferrer">Notion</a>
+            <a class="btn-wood-outline" href="https://docs.google.com/document/d/1lMVPQyTybEKw0kUYIy7fpPDCDSKxR7xm5jcGv2sAoa0/edit?usp=sharing" target="_blank" rel="noopener noreferrer">@LangService.Get("Documento de Google Drive", "Google Drive document")</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section__label">@LangService.Get("La idea", "The idea")</div>
+        <h2 class="section__title">@LangService.Get("Visión de OS", "The vision for OS")</h2>
+        <div class="pfc-features">
+            <div class="pfc-feature">
+                <div class="pfc-feature__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3" /><path d="M8 12h8M12 8v8" /></svg></div>
+                <h3 class="pfc-feature__title">@LangService.Get("Diseño minimalista", "Minimalist design")</h3>
+                <p class="pfc-feature__desc">@LangService.Get("Una experiencia refinada y sencilla. El logotipo imaginado forma la O con ceros y la S con unos.", "A refined and simple experience. The envisioned logo forms the O with zeros and the S with ones.")</p>
+            </div>
+            <div class="pfc-feature">
+                <div class="pfc-feature__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="m7 9 3 3-3 3M13 15h4" /></svg></div>
+                <h3 class="pfc-feature__title">@LangService.Get("Terminal siempre visible", "Always-visible terminal")</h3>
+                <p class="pfc-feature__desc">@LangService.Get("Cuando exista una interfaz gráfica, la idea es mantener siempre desplegada la terminal.", "When a graphical interface exists, the idea is to keep the terminal visible at all times.")</p>
+            </div>
+            <div class="pfc-feature">
+                <div class="pfc-feature__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2" /><path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3" /></svg></div>
+                <h3 class="pfc-feature__title">@LangService.Get("Inteligencia artificial", "Artificial intelligence")</h3>
+                <p class="pfc-feature__desc">@LangService.Get("A largo plazo se investigará cómo integrar la IA; todavía no es una funcionalidad implementada.", "In the long term, AI integration will be explored; it is not an implemented feature yet.")</p>
+            </div>
+            <div class="pfc-feature">
+                <div class="pfc-feature__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18" /><circle cx="12" cy="12" r="9" /></svg></div>
+                <h3 class="pfc-feature__title">@LangService.Get("Aprender desde cero", "Learning from scratch")</h3>
+                <p class="pfc-feature__desc">@LangService.Get("Un proyecto experimental para conocer el arranque, el núcleo y el funcionamiento de un sistema operativo.", "An experimental project to understand booting, the kernel and how an operating system works.")</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section__label">Stack</div>
+        <h2 class="section__title">@LangService.Get("Tecnologías previstas", "Planned technologies")</h2>
+        <div class="pfc-stack">
+            <div class="pfc-stack__item"><span class="pfc-stack__layer">@LangService.Get("Arranque y rutinas básicas", "Boot and basic routines")</span><span class="pfc-stack__tech">@LangService.Get("Ensamblador · NASM", "Assembly · NASM")</span></div>
+            <div class="pfc-stack__item"><span class="pfc-stack__layer">@LangService.Get("Núcleo", "Kernel")</span><span class="pfc-stack__tech">C · GCC cross-compiler</span></div>
+            <div class="pfc-stack__item"><span class="pfc-stack__layer">@LangService.Get("Compilación y pruebas", "Build and testing")</span><span class="pfc-stack__tech">Make · QEMU / Bochs</span></div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section__label">@LangService.Get("Primer borrador", "First draft")</div>
+        <h2 class="section__title">@LangService.Get("Arquitectura y documentación", "Architecture and documentation")</h2>
+        <blockquote class="pfc-quote">@LangService.Get("La propuesta inicial separa el arranque en ensamblador del núcleo en C. La arquitectura de 32 o 64 bits, el mecanismo de arranque y el mapa de memoria todavía deben definirse y validarse.", "The initial proposal separates the assembly boot code from the C kernel. The 32- or 64-bit architecture, boot mechanism and memory map still need to be defined and validated.")</blockquote>
+    </section>
+
+    <section class="section">
+        <div class="section__label">@LangService.Get("Guía del proyecto", "Project guide")</div>
+        <h2 class="section__title">@LangService.Get("Documentación prevista", "Planned documentation")</h2>
+        <div class="pfc-stack">
+            <div class="pfc-stack__item"><span class="pfc-stack__layer">README.md</span><span class="pfc-stack__tech">@LangService.Get("Objetivos, requisitos, compilación y hoja de ruta.", "Goals, requirements, build instructions and roadmap.")</span></div>
+            <div class="pfc-stack__item"><span class="pfc-stack__layer">CONTRIBUTING.md</span><span class="pfc-stack__tech">@LangService.Get("Convenciones de código, ABI y flujo de trabajo.", "Code conventions, ABI and workflow.")</span></div>
+            <div class="pfc-stack__item"><span class="pfc-stack__layer">MEMORY_MAP.md</span><span class="pfc-stack__tech">@LangService.Get("Distribución de memoria y regiones utilizadas.", "Memory layout and regions in use.")</span></div>
+            <div class="pfc-stack__item"><span class="pfc-stack__layer">BOOT_PROCESS.md</span><span class="pfc-stack__tech">@LangService.Get("Proceso de arranque y transición al núcleo.", "Boot process and transition to the kernel.")</span></div>
+            <div class="pfc-stack__item"><span class="pfc-stack__layer">BUILD_SYSTEM.md</span><span class="pfc-stack__tech">@LangService.Get("Makefile, enlazado y herramientas de compilación.", "Makefile, linking and build tools.")</span></div>
+            <div class="pfc-stack__item"><span class="pfc-stack__layer">LICENSE</span><span class="pfc-stack__tech">@LangService.Get("El repositorio ya cuenta con licencia MIT.", "The repository already has an MIT license.")</span></div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section__label">@LangService.Get("Objetivos futuros", "Future goals")</div>
+        <h2 class="section__title">@LangService.Get("Hoja de ruta", "Roadmap")</h2>
+        <div class="pfc-stack">
+            <div class="pfc-stack__item"><span class="pfc-stack__layer">01 · @LangService.Get("Planificación", "Planning")</span><span class="pfc-stack__tech">@LangService.Get("Definir arquitectura, herramientas y documentación.", "Define architecture, tools and documentation.")</span></div>
+            <div class="pfc-stack__item"><span class="pfc-stack__layer">02 · @LangService.Get("Arranque", "Boot")</span><span class="pfc-stack__tech">@LangService.Get("Arrancar en QEMU y mostrar un mensaje desde el núcleo en C.", "Boot in QEMU and display a message from the C kernel.")</span></div>
+            <div class="pfc-stack__item"><span class="pfc-stack__layer">03 · @LangService.Get("Núcleo inicial", "Initial kernel")</span><span class="pfc-stack__tech">@LangService.Get("Explorar salida de texto, memoria y entrada básica.", "Explore text output, memory and basic input.")</span></div>
+            <div class="pfc-stack__item"><span class="pfc-stack__layer">04 · Terminal</span><span class="pfc-stack__tech">@LangService.Get("Desarrollar una terminal y comandos sencillos.", "Develop a terminal and simple commands.")</span></div>
+            <div class="pfc-stack__item"><span class="pfc-stack__layer">05 · @LangService.Get("Interfaz gráfica", "Graphical interface")</span><span class="pfc-stack__tech">@LangService.Get("Explorar una interfaz minimalista con la terminal visible.", "Explore a minimalist interface with a visible terminal.")</span></div>
+            <div class="pfc-stack__item"><span class="pfc-stack__layer">06 · @LangService.Get("Inteligencia artificial", "Artificial intelligence")</span><span class="pfc-stack__tech">@LangService.Get("Investigar su integración cuando exista una base suficiente.", "Investigate integration once a sufficient foundation exists.")</span></div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section__label">@LangService.Get("Diario de desarrollo", "Development diary")</div>
+        <h2 class="section__title">@LangService.Get("Actualizaciones", "Updates")</h2>
+        @if (updates.Count > 0)
+        {
+            <div class="pfc-progress"><span class="pfc-progress__label">@LangService.Get("Última actualización", "Last updated"): <time datetime="@updates[0].Date.ToString("yyyy-MM-dd")">@updates[0].Date.ToString("dd/MM/yyyy")</time></span></div>
+        }
+        <div class="pfc-updates">
+            @foreach (var update in pagedUpdates)
+            {
+                <article class="pfc-update">
+                    <time class="pfc-update__date" datetime="@update.Date.ToString("yyyy-MM-dd")">
+                        <span class="pfc-update__day">@update.Date.Day.ToString("00")</span>
+                        <span class="pfc-update__month">@update.Date.ToString("MMM", new System.Globalization.CultureInfo(LangService.IsEnglish ? "en-GB" : "es-ES"))</span>
+                        <span class="pfc-update__year">@update.Date.Year</span>
+                    </time>
+                    <div class="pfc-update__body">
+                        <h3 class="pfc-update__title">@LangService.Get(update.Title, update.TitleEn)</h3>
+                        <p class="pfc-update__desc">@LangService.Get(update.Description, update.DescriptionEn)</p>
+                    </div>
+                </article>
+            }
+        </div>
+        @if (totalPages > 1)
+        {
+            <div class="proj-pagination">
+                @for (int p = 1; p <= totalPages; p++)
+                {
+                    var page = p;
+                    <button class="proj-pagination__num @(page == _updatesPage ? "proj-pagination__num--active" : "")" @onclick="() => _updatesPage = page" aria-label="@LangService.Get($"Página {page}", $"Page {page}")" aria-current="@(page == _updatesPage ? "page" : null)">@(page)</button>
+                }
+            </div>
+        }
     </section>
 </div>
 
 @code {
+    private int _updatesPage = 1;
+
     protected override void OnInitialized() => LangService.OnLanguageChanged += StateHasChanged;
 
     public void Dispose() => LangService.OnLanguageChanged -= StateHasChanged;

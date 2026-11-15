@@ -6,6 +6,18 @@ namespace MiPortfolioVictorR.Client.Services
     {
         public List<Project> GetProjects() => [
             new Project{
+                Id = 25,
+                Title = "LearnC",
+                TitleEn = "LearnC",
+                Description = "Repositorio de aprendizaje de C con los proyectos prácticos del curso C Programming Full Course for free.",
+                DescriptionEn = "A C learning repository containing practical projects from the C Programming Full Course for free.",
+                GitHubUrl = "https://github.com/Victorr501/LearnC",
+                YouTubeUrl = "https://www.youtube.com/watch?v=xND0t1pr3KY",
+                Tags = ["C", "Aprendizaje"],
+                IsFeatured = false,
+                Category = "Ingeniería Informática"
+            },
+            new Project{
                 Id = 23,
                 Title = "ChallengeMe!",
                 Description = "Aplicación web de retos diarios personalizados. Proyecto finalizado sin completar y sin desarrollo activo.",
