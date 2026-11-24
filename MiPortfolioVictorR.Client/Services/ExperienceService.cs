@@ -56,9 +56,26 @@ namespace MiPortfolioVictorR.Client.Services
             },
             new WorkExperience
             {
+                Period   = "Septiembre 2026 – Actualidad",
+                Role     = "Vendeor de textil",
+                RoleEn   = "Textile seller",
+                Company  = "IKEA",
+                Location = "Madrid",
+                Type     = ExperienceType.Generic,
+                Descriptions =
+                [
+                    "Venta activa en la sección de textil, atención al cliente y gestión de inventario."
+                ],
+                DescriptionsEn =
+                [
+                    "Active sales in the textile section, customer service and inventory management."
+                ]
+            },
+            new WorkExperience
+            {
                 Period   = "Junio 2026 – Septiembre 2026",
-                Role     = "Vendedor",
-                RoleEn   = "Sales Associate",
+                Role     = "Cajero",
+                RoleEn   = "Cashier",
                 Company  = "IKEA",
                 Location = "Madrid",
                 Type     = ExperienceType.Generic,

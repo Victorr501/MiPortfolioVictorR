@@ -6,6 +6,24 @@ namespace MiPortfolioVictorR.Client.Services
     {
         public List<Project> GetProjects() => [
             new Project{
+                Id = 26,
+                Title = "LearnPython",
+                Description = "Repositorio dedicado al aprendizaje y la práctica de Python.",
+                DescriptionEn = "A repository dedicated to learning and practicing Python.",
+                GitHubUrl = "https://github.com/Victorr501/LearnPython",
+                Tags = ["Python", "Aprendizaje"],
+                Category = "Ingeniería Informática"
+            },
+            new Project{
+                Id = 27,
+                Title = "LearnJava",
+                Description = "Repositorio dedicado al aprendizaje y la práctica de Java.",
+                DescriptionEn = "A repository dedicated to learning and practicing Java.",
+                GitHubUrl = "https://github.com/Victorr501/LearnJava",
+                Tags = ["Java", "Aprendizaje"],
+                Category = "Ingeniería Informática"
+            },
+            new Project{
                 Id = 25,
                 Title = "LearnC",
                 TitleEn = "LearnC",

@@ -13,14 +13,14 @@
     @* ── HERO ── *@
     <section class="hero">
         <div class="hero__left">
-            <span class="hero__tag">@LangService.Get("Desarrollador de Software", "Software Developer")</span>
+            <span class="hero__tag">@LangService.Get("Desarrollador Backend y Sistemas", "Backend and Systems Developer")</span>
             <h1 class="hero__name">
                 Víctor <span class="hero__name--accent">Rubín Rubio</span>
             </h1>
             <p class="hero__bio">
                 @LangService.Get(
-                    "Desarrollador de software con experiencia en la creación de aplicaciones multiplataforma y arquitecturas backend, principalmente en el ecosistema .NET y Python. Actualmente cursando la Ingeniería Informática para complementar mi base práctica con conocimientos avanzados en algoritmia, arquitectura de software y sistemas de bajo nivel.",
-                    "Software developer with experience in creating cross-platform applications and backend architectures, primarily within the .NET ecosystem and Python. Currently pursuing a degree in Computer Engineering to complement my practical foundation with advanced knowledge in algorithms, software architecture, and low-level systems."
+                    "Desarrollador de software enfocado en backend con Python y Java, y en programación de sistemas y bajo nivel con C. Actualmente curso Ingeniería Informática y continúo profundizando en algoritmia, arquitectura de software y desarrollo de sistemas.",
+                    "Software developer focused on backend development with Python and Java, and on systems and low-level programming with C. I am currently studying Computer Engineering and continuing to deepen my knowledge of algorithms, software architecture and systems development."
                 )
             </p>
             <div class="hero__btns">
@@ -28,10 +28,9 @@
                 <a class="btn-wood-outline" href="@LangService.Get(AppSettings.CvEs, AppSettings.CvEn)" download>@LangService.Get("Descargar CV", "Download CV")</a>
             </div>
             <div class="hero__badges">
-                <span class="badge-wood">C# · .NET 8 · ASP.NET core</span>
                 <span class="badge-wood">Python · FastAPI</span>
-                <span class="badge-wood">JavaScript · React</span>
-                <span class="badge-wood">Azure</span>
+                <span class="badge-wood">Java · Spring Boot</span>
+                <span class="badge-wood">C · @LangService.Get("Sistemas", "Systems")</span>
             </div>
         </div>
         <div class="hero__right">
@@ -154,15 +153,42 @@
     </section>
 
 
+    @* ── REPOSITORIOS DE APRENDIZAJE ── *@
+    <section class="section">
+        <div class="section__label">@LangService.Get("Aprendizaje", "Learning")</div>
+        <h2 class="section__title">@LangService.Get("Mis repositorios de aprendizaje", "My learning repositories")</h2>
+        <div class="projects-grid">
+            @foreach (var (id, icon) in new[] { (26, "python/python-original.svg"), (27, "java/java-original.svg"), (25, "c/c-original.svg") })
+            {
+                var project = ProjectService.GetById(id);
+                if (project is not null)
+                {
+                    <article class="card-wood learning-card">
+                        <img class="learning-card__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/@icon" alt="" />
+                        <h3 class="proj__title">@project.Title</h3>
+                        <p class="proj__desc">@LangService.Get(project.Description, project.DescriptionEn)</p>
+                        <a href="@project.GitHubUrl" target="_blank" rel="noopener noreferrer" class="proj__link">@LangService.Get("Ver repositorio en GitHub →", "View repository on GitHub →")</a>
+                    </article>
+                }
+            }
+        </div>
+    </section>
+
     @* ── TECNOLOGÍAS ── *@
     <section class="section">
         <div class="section__label">Stack</div>
-        <h2 class="section__title">@LangService.Get("Tecnologías", "Technologies")</h2>
+        <div class="section__header">
+            <h2 class="section__title">@LangService.Get("Tecnologías", "Technologies")</h2>
+            <div class="skills-controls">
+                <button type="button" class="skills-controls__button" @onclick="PreviousSkillCategory" aria-label="@LangService.Get("Categorías anteriores", "Previous categories")">←</button>
+                <button type="button" class="skills-controls__button" @onclick="NextSkillCategory" aria-label="@LangService.Get("Categorías siguientes", "Next categories")">→</button>
+            </div>
+        </div>
         <div class="skills-grid">
-            @foreach (var category in SkillService.GetCategories())
+            @foreach (var category in OrderedSkillCategories)
             {
                 <div class="skill-cat">
-                    <p class="skill-cat__title">@category</p>
+                    <p class="skill-cat__title">@LangService.Get(category, category switch { "Backend y APIs" => "Backend and APIs", "Software y Sistemas" => "Software and Systems", "Desarrollo Web y otras tecnologías" => "Web Development and Other Technologies", "Herramientas" => "Tools", "Aprendiendo" => "Learning", _ => category })</p>
                     <div class="skill-cat__list">
                         @foreach (var skill in SkillService.GetByCategory(category))
                         {
@@ -205,6 +231,29 @@
 </div>
 
 @code {
+    private int skillCategoryIndex;
+
+    private IEnumerable<string> OrderedSkillCategories
+    {
+        get
+        {
+            var categories = SkillService.GetCategories();
+            return categories.Skip(skillCategoryIndex).Concat(categories.Take(skillCategoryIndex));
+        }
+    }
+
+    private void PreviousSkillCategory()
+    {
+        var count = SkillService.GetCategories().Count;
+        if (count > 0) skillCategoryIndex = (skillCategoryIndex - 1 + count) % count;
+    }
+
+    private void NextSkillCategory()
+    {
+        var count = SkillService.GetCategories().Count;
+        if (count > 0) skillCategoryIndex = (skillCategoryIndex + 1) % count;
+    }
+
     protected override void OnInitialized()
     {
         LangService.OnLanguageChanged += StateHasChanged;
