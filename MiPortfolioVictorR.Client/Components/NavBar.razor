@@ -21,8 +21,16 @@
 
             <li class="navbar__separator" aria-hidden="true"></li>
 
-            <li><NavLink href="@AppRoutes.Trackify" ActiveClass="navbar__link--active navbar__link--featured-active" class="navbar__link navbar__link--featured">Trackify</NavLink></li>
-            <li><NavLink href="@AppRoutes.OperatingSystem" ActiveClass="navbar__link--active navbar__link--featured-active" class="navbar__link navbar__link--featured">@LangService.Get("Sistema operativo (OS)", "Operating system (OS)")</NavLink></li>
+            <li class="navbar__dropdown" @onmouseleave="CloseProjects" @onkeydown="HandleProjectsKey">
+                <button type="button" class="navbar__dropdown-toggle" @onclick="ToggleProjects" aria-expanded="@(_projectsOpen ? "true" : "false")" aria-controls="main-projects-menu">
+                    @LangService.Get("Proyectos grandes", "Main projects") <svg class="navbar__dropdown-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                </button>
+                <ul id="main-projects-menu" class="navbar__dropdown-menu @(_projectsOpen ? "navbar__dropdown-menu--open" : "")">
+                    <li><NavLink href="@AppRoutes.Trackify" ActiveClass="navbar__dropdown-link--active" class="navbar__dropdown-link" @onclick="CloseNavigation">Trackify</NavLink></li>
+                    <li><NavLink href="@AppRoutes.OperatingSystem" ActiveClass="navbar__dropdown-link--active" class="navbar__dropdown-link" @onclick="CloseNavigation">@LangService.Get("Sistema operativo (OS)", "Operating system (OS)")</NavLink></li>
+                    <li><NavLink href="@AppRoutes.EngineeringCalculator" ActiveClass="navbar__dropdown-link--active" class="navbar__dropdown-link" @onclick="CloseNavigation">@LangService.Get("Calculadora Ingeniería", "Engineering Calculator")</NavLink></li>
+                </ul>
+            </li>
 
             <li class="navbar__separator" aria-hidden="true"></li>
 
@@ -40,12 +48,18 @@
 
 @code {
     private bool _menuOpen = false;
+    private bool _projectsOpen = false;
     private void ToggleMenu() => _menuOpen = !_menuOpen;
+    private void ToggleProjects() => _projectsOpen = !_projectsOpen;
+    private void CloseProjects() => _projectsOpen = false;
+    private void CloseNavigation() { _projectsOpen = false; _menuOpen = false; }
+    private void HandleProjectsKey(KeyboardEventArgs args) { if (args.Key == "Escape") CloseProjects(); }
 
     private void SetLang(string lang)
     {
         LangService.SetLanguage(lang);
         _menuOpen = false;
+        _projectsOpen = false;
     }
 
     protected override void OnInitialized()
